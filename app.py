@@ -5,7 +5,7 @@
 os.environ.setdefault("IP", "0.0.0.0")
 os.environ.setdefault("PORT", "5000")
 os.environ.setdefault("SECRET_KEY", "xtJ)ux}K6I|macPC,*dkT8:A}5>e-<")
-os.environ.setdefault("MONGO_URI", "")
+os.environ.setdefault("MONGO_URI", "mongodb+srv://root:rOOtUser@myfirstcluster.lkzob.mongodb.net/recovery_test?retryWrites=true&w=majority")
 os.environ.setdefault("MONGO_DBNAME", "recovery_test") """
 
 import os
