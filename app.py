@@ -56,7 +56,7 @@ def create_account():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("get_recovery"))
+        return redirect(url_for("create_account"))
 
     return render_template("create_account.html")
 

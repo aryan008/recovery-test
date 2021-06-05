@@ -3,14 +3,17 @@
 
     <h3 class="center-align">Create an Account for Free!</h3>
 
-    <form>
+    <form method="POST" action="{{ url_for('create_account') }}">
         <div class="mb-3">
             <i class="fas fa-user-plus"></i>
             <label for="validationCustomUsername" class="form-label">Username</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">@</span>
-                <input type="text" id="username" name="username" class="form-control" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" id="validationCustomUsername" aria-describedby="inputGroupPrepend"required>
+                <input type="text" id="username" name="username" class="form-control" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
                 <div class="invalid-feedback">Please create a username.</div>
+            </div>
+            <div class="col-auto">
+                <span id="usernameHelpInline" class="form-text">Must be 5-15 characters long, using only letters & numbers.</span>
             </div>
         </div>
         <div class="mb-3">
@@ -18,7 +21,7 @@
             <label for="password" class="form-label">Create a Password</label>
             <input type="password" id="password" name="password" class="form-control" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" aria-describedby="passwordHelpBlock" required>
             <div class="col-auto">
-                <span id="passwordHelpInline" class="form-text">Must be 8-20 characters long.</span>
+                <span id="passwordHelpInline" class="form-text">Must be 5-15 characters long, using only letters & numbers.</span>
             </div>
         </div>
         <button type="submit" class="btn btn-dark">Create Account</button>
