@@ -35,7 +35,7 @@
                         <li class="nav-item"><a class="nav-link" href="#">Manage Profile</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">New Entry</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Manage Categories</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Log In</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url_for('create_account') }}">Create Account</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Log Out</a></li>
                     </ul>
@@ -61,6 +61,19 @@
         {% block content %}
         {% endblock %}
     </main>
+
+    <!--  Footer  -->
+    <footer class="mt-5 bg-dark text-light fixed-bottom">
+        <div class="container-fluid">
+            <p>For all things recovery</p>
+            <div >
+                <p><a href="{{url_for('get_recovery')}}">Home</a></p>
+            </div>
+        
+            <div>
+                <p>&copy; 2021</p>
+            </div>
+    </footer>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="

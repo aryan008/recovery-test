@@ -61,6 +61,11 @@ def create_account():
     return render_template("create_account.html")
 
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    return render_template("login.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
