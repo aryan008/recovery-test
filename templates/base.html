@@ -32,12 +32,15 @@
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url_for('get_recovery') }}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Manage Profile</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">New Entry</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Manage Categories</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Log In</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url_for('create_account') }}">Create Account</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Log Out</a></li>
+                        {% if session.user %}
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Manage Profile</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">New Entry</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Manage Categories</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Log Out</a></li>
+                         {% else %}
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Log In</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('create_account') }}">Create Account</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
