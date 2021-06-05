@@ -36,42 +36,12 @@
                         <li class="nav-item"><a class="nav-link" href="#">New Entry</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Manage Categories</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('create_account') }}">Create Account</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Log Out</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <!-- top navbar 
-		<nav class="nav-extended text-shadow light-blue darken-1">
-			<div class="nav-wrapper">
-				<a href="{{ url_for('get_recovery') }}" class="brand-logo">Recovery</a>
-				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-				<ul class="right hide-on-med-and-down">
-					<li><a href="{{ url_for('get_recovery') }}">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Manage Profile</a></li>
-					<li><a href="#">New Entry</a></li>
-					<li><a href="#">Manage Categories</a></li>
-					<li><a href="#">Log In</a></li>
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Log Out</a></li>
-				</ul>
-			</div>
-		</nav>
- 
-		<ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align light-blue-text text-darken 4">Recovery</h4></li>
-            <li><a href="{{ url_for('get_recovery') }}">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Manage Profile</a></li>
-					<li><a href="#">New Entry</a></li>
-					<li><a href="#">Manage Categories</a></li>
-					<li><a href="#">Log In</a></li>
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Log Out</a></li>
-        </ul>
-        -->
 	</header>
 
     {% block content %}

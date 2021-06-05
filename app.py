@@ -34,6 +34,11 @@ def get_recovery():
     return render_template("recovery.html", recovery=recovery)
 
 
+@app.route("/create_account", methods=["GET", "POST"])
+def create_account():
+    return render_template("create_account.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
