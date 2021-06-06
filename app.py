@@ -122,8 +122,8 @@ def about():
 
 @app.route("/new_entry")
 def new_entry():
-    # FIX! categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("new_entry.html")
+    options = mongo.db.recovery.find()
+    return render_template("new_entry.html", options = options)
 
 
 if __name__ == "__main__":
