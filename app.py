@@ -14,6 +14,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+import json
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -109,6 +110,14 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/about")
+def about():
+    data = []
+    with open("data/attributes.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("about.html", attribute_json=data)
 
 
 @app.route("/new_entry")

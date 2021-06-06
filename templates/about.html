@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>What Attributes do we measure?</h2>
+
+    {% for attr in attribute_json %}
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h3>{{ attr.attribute_name }}</h3>
+                <p>{{ attr.attribute_importance }}</p>
+            </div>
+            <div class="col-md-5">
+                <img src="{{ attr.img_src }}" alt="" class="featurette-image image-responsive">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+    {% endfor %}
+
+
+{% endblock %}

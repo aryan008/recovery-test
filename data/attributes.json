@@ -1,0 +1,14 @@
+[
+  {
+    "attribute_name": "Hydration",
+    "attribute_importance": "Very important",
+    "img_src": "https://images.unsplash.com/photo-1583167611236-9071a5972ebd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+    "img_alt_tag": "Girl drinking from a bottle of water"
+  },
+  {
+    "attribute_name": "Stretch",
+    "attribute_importance": "Kinda important",
+    "img_src": "https://images.unsplash.com/photo-1600026453194-11ae289732b8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3RyZXRjaGluZ3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60",
+    "img_alt_tag": "Girl drinking from a bottle of water"
+  }
+]
