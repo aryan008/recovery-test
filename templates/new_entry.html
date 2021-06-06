@@ -2,6 +2,13 @@
 {% block content %}
 
     <h2>Let's see how recovered you are!</h2>
+    <h3>Choose today's date to log recovery:</h3>
+    <div>
+        <i class="fas fa-calendar-alt"></i>
+        <input id="due_date" name="due_date" type="text" class="datepicker validate" required>
+        <label for="due_date">Due Date</label>
+    </div>
+    <br>
 
     <form method="POST" action="">
         {% for option in options %}
@@ -18,47 +25,32 @@
             </div>
             <br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="radio {{ option.attribute_name }}" value = "radio {{ option.option_one }}"  id="{{ option.option_one }}">
+                <label class="form-check-label" for="{{ option.option_one }}">
                     {{ option.option_one }}
                 </label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                <label class="form-check-label" for="flexRadioDefault2">
+                <input class="form-check-input" type="radio" name="radio {{ option.attribute_name }}" value = "radio {{ option.option_two }}"  id="{{ option.option_two }}">
+                <label class="form-check-label" for="{{ option.option_two }}">
                     {{ option.option_two }}
                 </label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                <label class="form-check-label" for="flexRadioDefault2">
+                <input class="form-check-input" type="radio" name="radio {{ option.attribute_name }}" value = "radio {{ option.option_three }}"  id="{{ option.option_three }}">
+                <label class="form-check-label" for="{{ option.option_three }}">
                     {{ option.option_three }}
                 </label>
             </div>
             </br><br>
         {% endfor %}
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment about your recovery here" id="floatingTextarea"></textarea>
+            <input id="day_comment" name="day_comment" minlength="5" maxlength="50" type="text" class="validate">
+            <label for="floatingTextarea"><i>Add notes to your entry</i></label>
+        </div>
+        <br>
         <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
-        
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">
-                Default radio
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-                Second default radio
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
-            <label class="form-check-label" for="exampleRadios3">
-                Disabled radio
-            </label>
-        </div>
-        
+    </form>        
 
 {% endblock %}
