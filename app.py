@@ -120,8 +120,20 @@ def about():
     return render_template("about.html", attribute_json=data)
 
 
-@app.route("/new_entry")
+@app.route("/new_entry", methods=["GET", "POST"])
 def new_entry():
+    if request.method == "POST":
+        entry = {
+            "timeframe": request.form.get("option.timeframe"),
+            "attribute_name": request.form.get("option.attribute_name"),
+            "narrative": request.form.get("option.narrative"),
+            "comments": request.form.get("day_comment"),
+            "created_by": session["user"]
+        }
+        mongo.db.entries.insert_one(entry)
+        flash("Task Successfully Added")
+        return redirect(url_for("new_entry"))
+
     options = mongo.db.recovery.find()
     return render_template("new_entry.html", options = options)
 

@@ -10,10 +10,10 @@
     </div>
     <br>
 
-    <form method="POST" action="">
+    <form method="POST" action="{{ url_for('new_entry') }}">
         {% for option in options %}
             <div class="mb-3">
-                <p>{{ option.timeframe }}</p>
+                <p name="option.timeframe" id ="option.timeframe">{{ option.timeframe }}</p>
             </div>
             <br>
             <div class="mb-3">
