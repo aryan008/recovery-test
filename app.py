@@ -136,15 +136,21 @@ def new_entry():
     options = mongo.db.recovery.find()
     return render_template("new_entry.html", options = options)
 
-def adam():
-    addy = mongo.db.entries.find_one()
-    full = list(addy.items())
-    check = full[1][1]
-    new = list(check)
-    aaa = new[0]
-    print(aaa)
+def get_result():
+    latest_entry = mongo.db.entries.find_one()
+    full_pycache = list(latest_entry.items())
+    selection_list = full_pycache[1][1]
+    attr_1 = selection_list[0]
+    attr_2 = selection_list[1]
+    if attr_1 == "<1 Litre":
+        attr_1_result = 35
+    
+    if attr_2 == "No":
+        attr_2_result = 10
+    print(attr_1_result)
+    print(attr_2_result)
 
-adam()
+get_result()
 
 """
 if __name__ == "__main__":
