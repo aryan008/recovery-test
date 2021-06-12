@@ -136,8 +136,19 @@ def new_entry():
     options = mongo.db.recovery.find()
     return render_template("new_entry.html", options = options)
 
+def adam():
+    addy = mongo.db.entries.find_one()
+    full = list(addy.items())
+    check = full[1][1]
+    new = list(check)
+    aaa = new[0]
+    print(aaa)
 
+adam()
+
+"""
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
+"""
