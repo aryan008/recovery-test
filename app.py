@@ -124,10 +124,8 @@ def about():
 def new_entry():
     if request.method == "POST":
         entry = {
-            "timeframe": request.form.get("option.timeframe"),
-            "attribute_name": request.form.get("option.attribute_name"),
             "narrative": request.form.get("option.narrative"),
-            "comments": request.form.get("day_comment"),
+            "option_choice": request.form.getlist("options.choice"),
             "created_by": session["user"]
         }
         mongo.db.entries.insert_one(entry)
