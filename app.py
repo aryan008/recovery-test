@@ -14,6 +14,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from datetime import datetime
 import json
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -126,7 +127,8 @@ def new_entry():
         entry = {
             "narrative": request.form.get("option.narrative"),
             "option_choice": request.form.getlist("options.choice"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "submission_date": datetime.today().strftime('%Y-%m-%d')
         }
         mongo.db.entries.insert_one(entry)
         flash("Task Successfully Added")
