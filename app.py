@@ -125,7 +125,6 @@ def about():
 def new_entry():
     if request.method == "POST":
         entry = {
-            "narrative": request.form.get("option.narrative"),
             "option_choice": request.form.getlist("options.choice"),
             "created_by": session["user"],
             "submission_date": datetime.today().strftime('%Y-%m-%d')
