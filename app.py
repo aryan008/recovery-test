@@ -136,25 +136,32 @@ def new_entry():
     options = mongo.db.recovery.find()
     return render_template("new_entry.html", options = options)
 
+
 def get_result():
-    latest_entry = mongo.db.entries.find_one()
+    latest_entry = mongo.db.entries.find_one( {"$query":{}, "$orderby":{"$natural":-1}} )
     full_pycache = list(latest_entry.items())
     selection_list = full_pycache[1][1]
     attr_1 = selection_list[0]
     attr_2 = selection_list[1]
     if attr_1 == "<1 Litre":
         attr_1_result = 35
+    elif attr_1 == "1-3 Litres":
+        attr_1_result = 50
+    else:
+        attr_1_result = 70
     
     if attr_2 == "No":
         attr_2_result = 10
-    print(attr_1_result)
-    print(attr_2_result)
+    elif attr_1 == "1-3 Litres":
+        attr_2_result = 30
+    else:
+        attr_2_result = 80
+    
+    print(attr_1_result+attr_2_result)
 
-get_result()
 
-"""
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-"""
+
