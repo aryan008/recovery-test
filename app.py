@@ -27,6 +27,15 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+ATTRIBUTE_1_SCORE = [2,3,5]
+ATTRIBUTE_2_SCORE = [3,7,10]
+ATTRIBUTE_3_SCORE = [5,10,15]
+ATTRIBUTE_4_SCORE = [8,17,25]
+ATTRIBUTE_5_SCORE = [3,7,10]
+ATTRIBUTE_6_SCORE = [5,10,15]
+ATTRIBUTE_7_SCORE = [3,7,10]
+ATTRIBUTE_8_SCORE = [3,7,10]
+
 mongo = PyMongo(app)
 
 
@@ -138,26 +147,28 @@ def new_entry():
 
 
 def get_result():
+    # https://stackoverflow.com/questions/10920651/get-the-latest-record-from-mongodb-collection
     latest_entry = mongo.db.entries.find_one( {"$query":{}, "$orderby":{"$natural":-1}} )
     full_pycache = list(latest_entry.items())
     selection_list = full_pycache[1][1]
-    attr_1 = selection_list[0]
-    attr_2 = selection_list[1]
-    if attr_1 == "<1 Litre":
-        attr_1_result = 35
-    elif attr_1 == "1-3 Litres":
-        attr_1_result = 50
-    else:
-        attr_1_result = 70
+    attr_1_query = selection_list[0]
+    attr_2_query = selection_list[1]
+
+    if attr_1_query == "No":
+        attr_1_result = ATTRIBUTE_1_SCORE[0]
+    elif attr_1_query == "Yes - Pool":
+        attr_1_result = ATTRIBUTE_1_SCORE[1]
+    elif attr_1_query == "Yes - Ice Bath/Sea Swim":
+        attr_1_result = ATTRIBUTE_1_SCORE[2]
     
-    if attr_2 == "No":
+    if attr_2_query == "Not at all":
+        attr_2_result = 3
+    elif attr_2_query == "Somewhat nutritious":
+        attr_2_result = 7
+    elif attr_2_query == "Very nutritious":
         attr_2_result = 10
-    elif attr_1 == "1-3 Litres":
-        attr_2_result = 30
-    else:
-        attr_2_result = 80
     
-    print(attr_1_result+attr_2_result)
+    print(attr_1_result)
 
 
 if __name__ == "__main__":
