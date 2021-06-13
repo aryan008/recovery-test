@@ -27,7 +27,7 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
-ATTRIBUTE_1_SCORE = [2,3,5]
+ATTRIBUTE_1_DICT ={"No": 2,"Yes - Pool": 3, "Yes - Ice Bath/Sea Swim": 5}
 ATTRIBUTE_2_SCORE = [3,7,10]
 ATTRIBUTE_3_SCORE = [5,10,15]
 ATTRIBUTE_4_SCORE = [8,17,25]
@@ -154,12 +154,12 @@ def get_result():
     attr_1_query = selection_list[0]
     attr_2_query = selection_list[1]
 
-    if attr_1_query == "No":
-        attr_1_result = ATTRIBUTE_1_SCORE[0]
-    elif attr_1_query == "Yes - Pool":
-        attr_1_result = ATTRIBUTE_1_SCORE[1]
-    elif attr_1_query == "Yes - Ice Bath/Sea Swim":
-        attr_1_result = ATTRIBUTE_1_SCORE[2]
+    if attr_1_query == list(ATTRIBUTE_1_DICT.keys())[0]:
+        attr_1_result = list(ATTRIBUTE_1_DICT.values())[0]
+    elif attr_1_query == list(ATTRIBUTE_1_DICT.keys())[1]:
+        attr_1_result = list(ATTRIBUTE_1_DICT.values())[1]
+    elif attr_1_query == list(ATTRIBUTE_1_DICT.keys())[2]:
+        attr_1_result = list(ATTRIBUTE_1_DICT.values())[2]
     
     if attr_2_query == "Not at all":
         attr_2_result = 3
