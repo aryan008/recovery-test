@@ -130,6 +130,22 @@ def about():
     return render_template("about.html", attribute_json=data)
 
 
+@app.route("/new_entry", methods=["GET", "POST"])
+def new_entry():
+    if request.method == "POST":
+        entry = {
+            "option_choice": request.form.getlist("options.choice"),
+            "created_by": session["user"],
+            "submission_date": datetime.today().strftime('%Y-%m-%d'),
+        }
+        mongo.db.entries.insert_one(entry)
+        flash("Task Successfully Added")
+        return redirect(url_for("new_entry"))
+
+    options = mongo.db.recovery.find()
+    return render_template("new_entry.html", options = options)
+
+
 def get_result():
     # https://stackoverflow.com/questions/10920651/get-the-latest-record-from-mongodb-collection
     latest_entry = mongo.db.entries.find_one( {"$query":{}, "$orderby":{"$natural":-1}} )
@@ -210,28 +226,10 @@ def get_result():
         attr_8_result = list(ATTRIBUTE_8_DICT.values())[2]
     total += attr_8_result
     
-    return total
+    
+    print(total)
 
-
-@app.route("/new_entry", methods=["GET", "POST"])
-def new_entry():
-    if request.method == "POST":
-        print(get_result())
-        entry = {
-            "option_choice": request.form.getlist("options.choice"),
-            "created_by": session["user"],
-            "submission_date": datetime.today().strftime('%Y-%m-%d'),
-            "score": get_result()
-        }
-        mongo.db.entries.insert_one(entry)
-        flash("Task Successfully Added")
-        return redirect(url_for("new_entry"))
-
-    options = mongo.db.recovery.find()
-    return render_template("new_entry.html", options = options)
-
-
-
+get_result()
 
 
 if __name__ == "__main__":
