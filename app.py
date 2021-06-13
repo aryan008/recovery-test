@@ -107,9 +107,10 @@ def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    result = get_result()
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, result = result)
 
     return redirect(url_for("login"))
 
@@ -227,13 +228,14 @@ def get_result():
     total += attr_8_result
     
     
-    print(total)
+    return total
 
-get_result()
+print(get_result())
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
+
 
