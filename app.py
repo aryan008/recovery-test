@@ -142,6 +142,7 @@ def new_entry():
             "option_choice": request.form.getlist("options.choice"),
             "created_by": session["user"],
             "submission_date": datetime.today().strftime('%Y-%m-%d'),
+            "comment_text": request.form.get("comment_text")
         }
         mongo.db.entries.insert_one(entry)
         flash("Task Successfully Added")
