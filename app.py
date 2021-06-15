@@ -141,7 +141,7 @@ def new_entry():
         entry = {
             "option_choice": request.form.getlist("options.choice"),
             "created_by": session["user"],
-            "submission_date": datetime.today().strftime('%Y-%m-%d %M:%S:%f'),
+            "submission_date": datetime.today().strftime('%Y-%m-%d %H:%M:%S'),
             "comment_text": request.form.get("comment_text"),
             "name": mongo.db.users.find_one({"username": session["user"]})["_id"]
         }
@@ -164,7 +164,7 @@ def get_result(username):
     
     last_entry_list = list(last_entry.items())
     final_attributes = last_entry_list[1][1]
-    print(last_entry_list)
+    print(last_entry_list[4][1])
     print(final_attributes)
 
     total = 0
@@ -240,8 +240,7 @@ def get_result(username):
         attr_8_result = list(ATTRIBUTE_8_DICT.values())[1]
     elif attr_8_query == list(ATTRIBUTE_8_DICT.keys())[2]:
         attr_8_result = list(ATTRIBUTE_8_DICT.values())[2]
-    total += attr_8_result
-    
+    total += attr_8_result    
     
     return total
 
