@@ -109,9 +109,9 @@ def profile(username):
         {"username": session["user"]})["username"]
     
     print(username+"_1")
-    result = get_result()
 
     if session["user"]:
+        result = get_result(username)
         return render_template("profile.html", username=username, result=result)
 
     return redirect(url_for("login"))
@@ -141,8 +141,9 @@ def new_entry():
         entry = {
             "option_choice": request.form.getlist("options.choice"),
             "created_by": session["user"],
-            "submission_date": datetime.today().strftime('%Y-%m-%d'),
-            "comment_text": request.form.get("comment_text")
+            "submission_date": datetime.today().strftime('%Y-%m-%d %M:%S:%f'),
+            "comment_text": request.form.get("comment_text"),
+            "name": mongo.db.users.find_one({"username": session["user"]})["_id"]
         }
         mongo.db.entries.insert_one(entry)
         flash("Task Successfully Added")
@@ -152,16 +153,16 @@ def new_entry():
     return render_template("new_entry.html", options = options)
 
 
-def get_result():
+def get_result(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
-    print(username)
+
     # https://stackoverflow.com/questions/10920651/get-the-latest-record-from-mongodb-collection
-    latest_entry = mongo.db.entries.find_one( {"$query":{}, "$orderby":{"$natural":-1}} )
+    latest_entry = mongo.db.entries.find_one( {"$query":{}, "$orderby":{"submission_date":-1}, "username": username} )
+    
     full_pycache = list(latest_entry.items())
     selection_list = full_pycache[1][1]
-    print(latest_entry)
+    print(selection_list)
     total = 0
 
     attr_1_query = selection_list[0]
@@ -239,6 +240,8 @@ def get_result():
     
     
     return total
+
+
 
 
 if __name__ == "__main__":
