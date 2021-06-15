@@ -134,6 +134,8 @@ def about():
 @app.route("/new_entry", methods=["GET", "POST"])
 def new_entry():
     if request.method == "POST":
+        username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
         entry = {
             "option_choice": request.form.getlist("options.choice"),
             "created_by": session["user"],
@@ -141,7 +143,7 @@ def new_entry():
         }
         mongo.db.entries.insert_one(entry)
         flash("Task Successfully Added")
-        return redirect(url_for("new_entry"))
+        return redirect(url_for("profile", username=username))
 
     options = mongo.db.recovery.find()
     return render_template("new_entry.html", options = options)
