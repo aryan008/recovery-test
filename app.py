@@ -157,22 +157,26 @@ def get_result(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
-    # https://stackoverflow.com/questions/10920651/get-the-latest-record-from-mongodb-collection
-    latest_entry = mongo.db.entries.find_one( {"$query":{}, "$orderby":{"submission_date":-1}, "username": username} )
+    latest_entry = mongo.db.entries.find({"created_by": username}).sort(username, -1)
     
-    full_pycache = list(latest_entry.items())
-    selection_list = full_pycache[1][1]
-    print(selection_list)
+    initial_list = list(latest_entry)
+    last_entry = initial_list[-1]
+    
+    last_entry_list = list(last_entry.items())
+    final_attributes = last_entry_list[1][1]
+    print(last_entry_list)
+    print(final_attributes)
+
     total = 0
 
-    attr_1_query = selection_list[0]
-    attr_2_query = selection_list[1]
-    attr_3_query = selection_list[2]
-    attr_4_query = selection_list[3]
-    attr_5_query = selection_list[4]
-    attr_6_query = selection_list[5]
-    attr_7_query = selection_list[6]
-    attr_8_query = selection_list[7]
+    attr_1_query = final_attributes[0]
+    attr_2_query = final_attributes[1]
+    attr_3_query = final_attributes[2]
+    attr_4_query = final_attributes[3]
+    attr_5_query = final_attributes[4]
+    attr_6_query = final_attributes[5]
+    attr_7_query = final_attributes[6]
+    attr_8_query = final_attributes[7]
 
     if attr_1_query == list(ATTRIBUTE_1_DICT.keys())[0]:
         attr_1_result = list(ATTRIBUTE_1_DICT.values())[0]
