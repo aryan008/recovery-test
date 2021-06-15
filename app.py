@@ -108,8 +108,8 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     
+    print(username+"_1")
     result = get_result()
-    
 
     if session["user"]:
         return render_template("profile.html", username=username, result=result)
@@ -153,10 +153,15 @@ def new_entry():
 
 
 def get_result():
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    
+    print(username)
     # https://stackoverflow.com/questions/10920651/get-the-latest-record-from-mongodb-collection
     latest_entry = mongo.db.entries.find_one( {"$query":{}, "$orderby":{"$natural":-1}} )
     full_pycache = list(latest_entry.items())
     selection_list = full_pycache[1][1]
+    print(latest_entry)
     total = 0
 
     attr_1_query = selection_list[0]
@@ -235,12 +240,8 @@ def get_result():
     
     return total
 
-print(get_result())
-
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-
-
