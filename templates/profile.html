@@ -5,7 +5,11 @@
         <h3>
             {{ username }}'s Profile
             <br>
+            {% if result == "No entry yet, please submit one" %}
+            No entry yet, please submit one
+            {% else %}
             Your score is {{ result }}%
+            {% endif %}
         </h3>
     </div>
 
