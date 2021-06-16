@@ -107,8 +107,6 @@ def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
-    print(username+"_1")
 
     if session["user"]:
         result = get_result(username)
@@ -154,96 +152,101 @@ def new_entry():
 
 
 def get_result(username):
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+    try:
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
 
-    latest_entry = mongo.db.entries.find({"created_by": username}).sort(username, -1)
-    
-    initial_list = list(latest_entry)
-    last_entry = initial_list[-1]
-    
-    last_entry_list = list(last_entry.items())
-    final_attributes = last_entry_list[1][1]
-    print(last_entry_list[4][1])
-    print(final_attributes)
+        latest_entry = mongo.db.entries.find({"created_by": username}).sort(username, -1)
+        
+        initial_list = list(latest_entry)
+        last_entry = initial_list[-1]
+        
+        last_entry_list = list(last_entry.items())
+        final_attributes = last_entry_list[1][1]
+        print(last_entry_list[4][1])
+        print(final_attributes)
 
-    total = 0
+        total = 0
 
-    attr_1_query = final_attributes[0]
-    attr_2_query = final_attributes[1]
-    attr_3_query = final_attributes[2]
-    attr_4_query = final_attributes[3]
-    attr_5_query = final_attributes[4]
-    attr_6_query = final_attributes[5]
-    attr_7_query = final_attributes[6]
-    attr_8_query = final_attributes[7]
+        attr_1_query = final_attributes[0]
+        attr_2_query = final_attributes[1]
+        attr_3_query = final_attributes[2]
+        attr_4_query = final_attributes[3]
+        attr_5_query = final_attributes[4]
+        attr_6_query = final_attributes[5]
+        attr_7_query = final_attributes[6]
+        attr_8_query = final_attributes[7]
 
-    if attr_1_query == list(ATTRIBUTE_1_DICT.keys())[0]:
-        attr_1_result = list(ATTRIBUTE_1_DICT.values())[0]
-    elif attr_1_query == list(ATTRIBUTE_1_DICT.keys())[1]:
-        attr_1_result = list(ATTRIBUTE_1_DICT.values())[1]
-    elif attr_1_query == list(ATTRIBUTE_1_DICT.keys())[2]:
-        attr_1_result = list(ATTRIBUTE_1_DICT.values())[2]
-    total += attr_1_result
-    
-    if attr_2_query == list(ATTRIBUTE_2_DICT.keys())[0]:
-        attr_2_result = list(ATTRIBUTE_2_DICT.values())[0]
-    elif attr_2_query == list(ATTRIBUTE_2_DICT.keys())[1]:
-        attr_2_result = list(ATTRIBUTE_2_DICT.values())[1]
-    elif attr_2_query == list(ATTRIBUTE_2_DICT.keys())[2]:
-        attr_2_result = list(ATTRIBUTE_2_DICT.values())[2]
-    total += attr_2_result
+        if attr_1_query == list(ATTRIBUTE_1_DICT.keys())[0]:
+            attr_1_result = list(ATTRIBUTE_1_DICT.values())[0]
+        elif attr_1_query == list(ATTRIBUTE_1_DICT.keys())[1]:
+            attr_1_result = list(ATTRIBUTE_1_DICT.values())[1]
+        elif attr_1_query == list(ATTRIBUTE_1_DICT.keys())[2]:
+            attr_1_result = list(ATTRIBUTE_1_DICT.values())[2]
+        total += attr_1_result
+        
+        if attr_2_query == list(ATTRIBUTE_2_DICT.keys())[0]:
+            attr_2_result = list(ATTRIBUTE_2_DICT.values())[0]
+        elif attr_2_query == list(ATTRIBUTE_2_DICT.keys())[1]:
+            attr_2_result = list(ATTRIBUTE_2_DICT.values())[1]
+        elif attr_2_query == list(ATTRIBUTE_2_DICT.keys())[2]:
+            attr_2_result = list(ATTRIBUTE_2_DICT.values())[2]
+        total += attr_2_result
 
-    if attr_3_query == list(ATTRIBUTE_3_DICT.keys())[0]:
-        attr_3_result = list(ATTRIBUTE_3_DICT.values())[0]
-    elif attr_3_query == list(ATTRIBUTE_3_DICT.keys())[1]:
-        attr_3_result = list(ATTRIBUTE_3_DICT.values())[1]
-    elif attr_3_query == list(ATTRIBUTE_3_DICT.keys())[2]:
-        attr_3_result = list(ATTRIBUTE_3_DICT.values())[2]
-    total += attr_3_result
+        if attr_3_query == list(ATTRIBUTE_3_DICT.keys())[0]:
+            attr_3_result = list(ATTRIBUTE_3_DICT.values())[0]
+        elif attr_3_query == list(ATTRIBUTE_3_DICT.keys())[1]:
+            attr_3_result = list(ATTRIBUTE_3_DICT.values())[1]
+        elif attr_3_query == list(ATTRIBUTE_3_DICT.keys())[2]:
+            attr_3_result = list(ATTRIBUTE_3_DICT.values())[2]
+        total += attr_3_result
 
-    if attr_4_query == list(ATTRIBUTE_4_DICT.keys())[0]:
-        attr_4_result = list(ATTRIBUTE_4_DICT.values())[0]
-    elif attr_4_query == list(ATTRIBUTE_4_DICT.keys())[1]:
-        attr_4_result = list(ATTRIBUTE_4_DICT.values())[1]
-    elif attr_4_query == list(ATTRIBUTE_4_DICT.keys())[2]:
-        attr_4_result = list(ATTRIBUTE_4_DICT.values())[2]
-    total += attr_4_result
+        if attr_4_query == list(ATTRIBUTE_4_DICT.keys())[0]:
+            attr_4_result = list(ATTRIBUTE_4_DICT.values())[0]
+        elif attr_4_query == list(ATTRIBUTE_4_DICT.keys())[1]:
+            attr_4_result = list(ATTRIBUTE_4_DICT.values())[1]
+        elif attr_4_query == list(ATTRIBUTE_4_DICT.keys())[2]:
+            attr_4_result = list(ATTRIBUTE_4_DICT.values())[2]
+        total += attr_4_result
 
-    if attr_5_query == list(ATTRIBUTE_5_DICT.keys())[0]:
-        attr_5_result = list(ATTRIBUTE_5_DICT.values())[0]
-    elif attr_5_query == list(ATTRIBUTE_5_DICT.keys())[1]:
-        attr_5_result = list(ATTRIBUTE_5_DICT.values())[1]
-    elif attr_5_query == list(ATTRIBUTE_5_DICT.keys())[2]:
-        attr_5_result = list(ATTRIBUTE_5_DICT.values())[2]
-    total += attr_5_result
+        if attr_5_query == list(ATTRIBUTE_5_DICT.keys())[0]:
+            attr_5_result = list(ATTRIBUTE_5_DICT.values())[0]
+        elif attr_5_query == list(ATTRIBUTE_5_DICT.keys())[1]:
+            attr_5_result = list(ATTRIBUTE_5_DICT.values())[1]
+        elif attr_5_query == list(ATTRIBUTE_5_DICT.keys())[2]:
+            attr_5_result = list(ATTRIBUTE_5_DICT.values())[2]
+        total += attr_5_result
 
-    if attr_6_query == list(ATTRIBUTE_6_DICT.keys())[0]:
-        attr_6_result = list(ATTRIBUTE_6_DICT.values())[0]
-    elif attr_6_query == list(ATTRIBUTE_6_DICT.keys())[1]:
-        attr_6_result = list(ATTRIBUTE_6_DICT.values())[1]
-    elif attr_6_query == list(ATTRIBUTE_6_DICT.keys())[2]:
-        attr_6_result = list(ATTRIBUTE_6_DICT.values())[2]
-    total += attr_6_result
+        if attr_6_query == list(ATTRIBUTE_6_DICT.keys())[0]:
+            attr_6_result = list(ATTRIBUTE_6_DICT.values())[0]
+        elif attr_6_query == list(ATTRIBUTE_6_DICT.keys())[1]:
+            attr_6_result = list(ATTRIBUTE_6_DICT.values())[1]
+        elif attr_6_query == list(ATTRIBUTE_6_DICT.keys())[2]:
+            attr_6_result = list(ATTRIBUTE_6_DICT.values())[2]
+        total += attr_6_result
 
-    if attr_7_query == list(ATTRIBUTE_7_DICT.keys())[0]:
-        attr_7_result = list(ATTRIBUTE_7_DICT.values())[0]
-    elif attr_7_query == list(ATTRIBUTE_7_DICT.keys())[1]:
-        attr_7_result = list(ATTRIBUTE_7_DICT.values())[1]
-    elif attr_7_query == list(ATTRIBUTE_7_DICT.keys())[2]:
-        attr_7_result = list(ATTRIBUTE_7_DICT.values())[2]
-    total += attr_7_result
+        if attr_7_query == list(ATTRIBUTE_7_DICT.keys())[0]:
+            attr_7_result = list(ATTRIBUTE_7_DICT.values())[0]
+        elif attr_7_query == list(ATTRIBUTE_7_DICT.keys())[1]:
+            attr_7_result = list(ATTRIBUTE_7_DICT.values())[1]
+        elif attr_7_query == list(ATTRIBUTE_7_DICT.keys())[2]:
+            attr_7_result = list(ATTRIBUTE_7_DICT.values())[2]
+        total += attr_7_result
 
-    if attr_8_query == list(ATTRIBUTE_8_DICT.keys())[0]:
-        attr_8_result = list(ATTRIBUTE_8_DICT.values())[0]
-    elif attr_8_query == list(ATTRIBUTE_8_DICT.keys())[1]:
-        attr_8_result = list(ATTRIBUTE_8_DICT.values())[1]
-    elif attr_8_query == list(ATTRIBUTE_8_DICT.keys())[2]:
-        attr_8_result = list(ATTRIBUTE_8_DICT.values())[2]
-    total += attr_8_result    
-    
-    return total
+        if attr_8_query == list(ATTRIBUTE_8_DICT.keys())[0]:
+            attr_8_result = list(ATTRIBUTE_8_DICT.values())[0]
+        elif attr_8_query == list(ATTRIBUTE_8_DICT.keys())[1]:
+            attr_8_result = list(ATTRIBUTE_8_DICT.values())[1]
+        elif attr_8_query == list(ATTRIBUTE_8_DICT.keys())[2]:
+            attr_8_result = list(ATTRIBUTE_8_DICT.values())[2]
+        total += attr_8_result    
+        
+        return total
 
+    except IndexError as error:
+        narrative = "No entry yet, please submit one"
+        print(narrative)
+        return narrative
 
 
 
