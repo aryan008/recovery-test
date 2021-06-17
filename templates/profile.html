@@ -8,7 +8,15 @@
             {% if result == "No entry yet, please submit one" %}
             No entry yet, please submit one
             {% else %}
-            Your score is {{ result }}%
+            Todays result: Your score is {{ result }}%
+            <br>
+                {% if result >= 70 %}
+                You are well recovered!
+                {% elif result >= 50 %}
+                You are moderately recovered!
+                {% else %}
+                You are poorly recovered
+                {% endif %}
             {% endif %}
         </h3>
     </div>
