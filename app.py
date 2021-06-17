@@ -111,9 +111,7 @@ def profile(username):
     if session["user"]:
         result = get_result(username)
         date_entered = get_date(username)
-        
         today = datetime.today().strftime('%Y-%m-%d')
-
         day_1 = datetime.strptime(date_entered, "%Y-%m-%d")
         day_2 = datetime.strptime(today, "%Y-%m-%d")
         
@@ -146,6 +144,7 @@ def new_entry():
     if request.method == "POST":
         username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+        result = get_result(username)
         entry = {
             "option_choice": request.form.getlist("options.choice"),
             "created_by": session["user"],
