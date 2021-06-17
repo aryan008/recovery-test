@@ -241,6 +241,14 @@ def new_entry():
     options = mongo.db.recovery.find()
     return render_template("new_entry.html", options = options)
 
+
+@app.route("/edit_task/<task_id>", methods=["GET", "POST"])
+def edit_task(task_id):
+    task = mongo.db.entries.find_one({"_id": ObjectId(task_id)})
+    print(task)
+
+edit_task("60cb8268505b41bdac384b2e")
+
 def get_date(username):
     try:
         username = mongo.db.users.find_one(
