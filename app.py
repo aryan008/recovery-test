@@ -111,14 +111,16 @@ def profile(username):
     if session["user"]:
         result = get_result(username)
         date_entered = get_date(username)
+        
         today = datetime.today().strftime('%Y-%m-%d')
+
         day_1 = datetime.strptime(date_entered, "%Y-%m-%d")
         day_2 = datetime.strptime(today, "%Y-%m-%d")
         
         # https://stackoverflow.com/questions/8419564/difference-between-two-dates-in-python
         date_difference = abs((day_1 - day_2).days)
         
-        return render_template("profile.html", username=username, result=result, date_difference=date_difference)
+        return render_template("profile.html", username=username, result=result, date_difference=date_difference, date_entered=date_entered)
 
     return redirect(url_for("login"))
 
@@ -160,6 +162,7 @@ def new_entry():
     return render_template("new_entry.html", options = options)
 
 def get_date(username):
+    try:
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
 
@@ -167,10 +170,13 @@ def get_date(username):
         
         initial_list_date = list(latest_entry_date)
         last_entry_date = initial_list_date[-1]
-        
         last_entry_list_date = list(last_entry_date.items())
         final_date = last_entry_list_date[3][1]
         return final_date
+    
+    except IndexError as error:
+        todays_date = datetime.today().strftime('%Y-%m-%d')
+        return todays_date
 
 
 def get_result(username):

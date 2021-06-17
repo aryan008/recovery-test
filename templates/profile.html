@@ -7,8 +7,10 @@
             <br>
             {% if result == "No entry yet, please submit one" %}
             No entry yet since you created the account, please submit one here.
-            {% else %}
-            Latest result: Your score is {{ result }}%
+            {% elif date_difference ==0 %}
+            Today's result: Your score is {{ result }}%
+            <br>
+            Date Entered: {{ date_entered }}
             <br>
                 {% if result >= 70 %}
                 You are well recovered!
@@ -17,6 +19,8 @@
                 {% else %}
                 You are poorly recovered
                 {% endif %}
+            {% else %}
+            You have entered in a date in the past/future, Log one for today!
             {% endif %}
         </h3>
     </div>

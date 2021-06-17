@@ -8,7 +8,7 @@
 <form method="POST" action="{{ url_for('new_entry') }}">
     <label for="start">Select Date:</label>
     
-    <input type="date" id="date_choice" name="date_choice" value="date_choice" min="2021-06-01" max="2023-06-01">
+    <input type="date" id="date_choice" name="date_choice" value="date_choice" min="2021-06-01" max="2023-06-01" required>
     {% for option in options %}
         <div>
             <br>
