@@ -3,14 +3,12 @@
 
 <h2>Let's see how recovered you are!</h2>
 <h3>Choose today's date to log recovery:</h3>
-<div>
-    <i class="fas fa-calendar-alt"></i>
-    <input id="due_date" name="due_date" type="text" class="datepicker validate" required>
-    <label for="due_date">Due Date</label>
-</div>
 <br>
 
 <form method="POST" action="{{ url_for('new_entry') }}">
+    <label for="start">Select Date:</label>
+    
+    <input type="date" id="date_choice" name="date_choice" value="date_choice" min="2021-06-01" max="2023-06-01">
     {% for option in options %}
         <div>
             <br>

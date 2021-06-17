@@ -110,7 +110,15 @@ def profile(username):
 
     if session["user"]:
         result = get_result(username)
-        return render_template("profile.html", username=username, result=result)
+        date_entered = get_date(username)
+        today = datetime.today().strftime('%Y-%m-%d')
+        day_1 = datetime.strptime(date_entered, "%Y-%m-%d")
+        day_2 = datetime.strptime(today, "%Y-%m-%d")
+        
+        # https://stackoverflow.com/questions/8419564/difference-between-two-dates-in-python
+        date_difference = abs((day_1 - day_2).days)
+        
+        return render_template("profile.html", username=username, result=result, date_difference=date_difference)
 
     return redirect(url_for("login"))
 
@@ -139,7 +147,8 @@ def new_entry():
         entry = {
             "option_choice": request.form.getlist("options.choice"),
             "created_by": session["user"],
-            "submission_date": datetime.today().strftime('%Y-%m-%d %H:%M:%S'),
+            "user_chosen_date": request.form.get("date_choice"),
+            "submission_date": datetime.today().strftime('%Y-%m-%d'),
             "comment_text": request.form.get("comment_text"),
             "name": mongo.db.users.find_one({"username": session["user"]})["_id"]
         }
@@ -149,6 +158,19 @@ def new_entry():
 
     options = mongo.db.recovery.find()
     return render_template("new_entry.html", options = options)
+
+def get_date(username):
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+
+        latest_entry_date = mongo.db.entries.find({"created_by": username}).sort(username, -1)
+        
+        initial_list_date = list(latest_entry_date)
+        last_entry_date = initial_list_date[-1]
+        
+        last_entry_list_date = list(last_entry_date.items())
+        final_date = last_entry_list_date[3][1]
+        return final_date
 
 
 def get_result(username):
@@ -163,8 +185,8 @@ def get_result(username):
         
         last_entry_list = list(last_entry.items())
         final_attributes = last_entry_list[1][1]
-        print(last_entry_list[4][1])
-        print(final_attributes)
+        """print(last_entry_list[4][1])
+        print(final_attributes)"""
 
         total = 0
 
