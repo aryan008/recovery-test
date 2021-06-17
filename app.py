@@ -117,8 +117,9 @@ def profile(username):
         
         # https://stackoverflow.com/questions/8419564/difference-between-two-dates-in-python
         date_difference = abs((day_1 - day_2).days)
+        tasks = list(mongo.db.entries.find())
         
-        return render_template("profile.html", username=username, result=result, date_difference=date_difference, date_entered=date_entered)
+        return render_template("profile.html", username=username, result=result, date_difference=date_difference, date_entered=date_entered, tasks=tasks)
 
     return redirect(url_for("login"))
 
@@ -242,12 +243,12 @@ def new_entry():
     return render_template("new_entry.html", options = options)
 
 
-@app.route("/edit_task/<task_id>", methods=["GET", "POST"])
-def edit_task(task_id):
+@app.route("/edit_entry/<task_id>", methods=["GET", "POST"])
+def edit_entry(task_id):
     task = mongo.db.entries.find_one({"_id": ObjectId(task_id)})
     print(task)
+    return render_template("edit_entry.html", task=task)
 
-edit_task("60cb8268505b41bdac384b2e")
 
 def get_date(username):
     try:
