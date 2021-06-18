@@ -249,6 +249,8 @@ def edit_entry(username):
         options = mongo.db.recovery.find()
         return render_template("edit_entry.html", username=username, options=options)
 
+    return redirect(url_for("login"))
+
 
 @app.route("/logout")
 def logout():
@@ -397,8 +399,6 @@ def get_result(username):
         
         last_entry_list = list(last_entry.items())
         final_attributes = last_entry_list[1][1]
-        """print(last_entry_list[4][1])
-        print(final_attributes)"""
 
         total = 0
 
@@ -481,7 +481,6 @@ def get_result(username):
         narrative = "No entry yet, please submit one"
         print(narrative)
         return narrative
-
 
 
 if __name__ == "__main__":
