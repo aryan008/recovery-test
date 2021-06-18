@@ -251,10 +251,8 @@ def edit_entry(username):
             flash("Edit of entry successful!")
             return redirect(url_for("profile", username=username))
             
-
         options = mongo.db.recovery.find()
-        today = datetime.today().strftime('%Y-%m-%d')
-        return render_template("edit_entry.html", username=username, options=options, today=today)
+        return render_template("edit_entry.html", username=username, options=options)
 
     return redirect(url_for("login"))
 
@@ -373,8 +371,7 @@ def new_entry():
         return redirect(url_for("profile", username=username))
 
     options = mongo.db.recovery.find()
-    today = datetime.today().strftime('%Y-%m-%d')
-    return render_template("new_entry.html", options = options, today=today)
+    return render_template("new_entry.html", options = options)
 
 
 def get_date(username):
