@@ -151,6 +151,7 @@ def edit_entry(username):
     if session["user"]:
         latest_entry_edit = mongo.db.entries.find({"created_by": username}).sort(username, -1)  
         latest_edit = list(latest_entry_edit)
+        print(latest_edit)
         last_entry_list = latest_edit[-1]
         last_entry_list_final = list(last_entry_list.items())
         final_edit = last_entry_list_final[1][1]
@@ -252,7 +253,8 @@ def edit_entry(username):
             
 
         options = mongo.db.recovery.find()
-        return render_template("edit_entry.html", username=username, options=options)
+        today = datetime.today().strftime('%Y-%m-%d')
+        return render_template("edit_entry.html", username=username, options=options, today=today)
 
     return redirect(url_for("login"))
 
@@ -371,7 +373,8 @@ def new_entry():
         return redirect(url_for("profile", username=username))
 
     options = mongo.db.recovery.find()
-    return render_template("new_entry.html", options = options)
+    today = datetime.today().strftime('%Y-%m-%d')
+    return render_template("new_entry.html", options = options, today=today)
 
 
 def get_date(username):
