@@ -148,7 +148,9 @@ def edit_entry(username):
         score = last_entry_list_final[7][1]
         print(final_edit)
         print(score)
-        return render_template("edit_entry.html", username=username)
+
+        options = mongo.db.recovery.find()
+        return render_template("edit_entry.html", username=username, options=options)
 
 
 @app.route("/logout")
