@@ -114,14 +114,41 @@ def profile(username):
         today = datetime.today().strftime('%Y-%m-%d')
         day_1 = datetime.strptime(date_entered, "%Y-%m-%d")
         day_2 = datetime.strptime(today, "%Y-%m-%d")
+
+        latest_entry_edit = mongo.db.entries.find({"created_by": username}).sort(username, -1)  
+        latest_edit = list(latest_entry_edit)
+        last_entry_list = latest_edit[-1]
+        last_entry_list_final = list(last_entry_list.items())
+        final_edit = last_entry_list_final[1][1]
+        score = last_entry_list_final[7][1]
+        print(final_edit)
+        print(score)
+        print("AD")
         
         # https://stackoverflow.com/questions/8419564/difference-between-two-dates-in-python
         date_difference = abs((day_1 - day_2).days)
-        tasks = list(mongo.db.entries.find())
         
-        return render_template("profile.html", username=username, result=result, date_difference=date_difference, date_entered=date_entered, tasks=tasks)
+        return render_template("profile.html", username=username, result=result, date_difference=date_difference, date_entered=date_entered)
 
     return redirect(url_for("login"))
+
+
+
+@app.route("/edit_entry/<username>", methods=["GET", "POST"])
+def edit_entry(username):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if session["user"]:
+        latest_entry_edit = mongo.db.entries.find({"created_by": username}).sort(username, -1)  
+        latest_edit = list(latest_entry_edit)
+        last_entry_list = latest_edit[-1]
+        last_entry_list_final = list(last_entry_list.items())
+        final_edit = last_entry_list_final[1][1]
+        score = last_entry_list_final[7][1]
+        print(final_edit)
+        print(score)
+        return render_template("edit_entry.html", username=username)
 
 
 @app.route("/logout")
@@ -223,8 +250,6 @@ def new_entry():
             attr_8_result = list(ATTRIBUTE_8_DICT.values())[2]
         total += attr_8_result
 
-        print(final_attributes)
-        print(total)
 
         entry = {
             "option_choice": request.form.getlist("options.choice"),
@@ -241,13 +266,6 @@ def new_entry():
 
     options = mongo.db.recovery.find()
     return render_template("new_entry.html", options = options)
-
-
-@app.route("/edit_entry/<task_id>", methods=["GET", "POST"])
-def edit_entry(task_id):
-    task = mongo.db.entries.find_one({"_id": ObjectId(task_id)})
-    print(task)
-    return render_template("edit_entry.html", task=task)
 
 
 def get_date(username):

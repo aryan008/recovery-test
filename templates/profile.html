@@ -8,9 +8,8 @@
             {% if result == "No entry yet, please submit one" %}
             No entry yet since you created the account, please submit one here.
             {% elif date_difference ==0 %}
-            {% for task in tasks %}
             Today's result: Your score is {{ result }}%
-            <a class="btn btn-success" href="{{ url_for('edit_entry', task_id=task._id) }}" role="button">Edit</a>
+            <a class="btn btn-success" href="{{url_for('edit_entry', username=username)}}" role="button">Edit</a>
             <br>
             Date Entered: {{ date_entered }}
             <br>
@@ -22,7 +21,6 @@
                 You are poorly recovered
                 {% endif %}
             {% else %}
-            {% endfor %}
             You have entered in a date in the past/future, Log one for today!
             {% endif %}
         </h3>
