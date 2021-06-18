@@ -124,6 +124,24 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+@app.route("/delete_entry/<username>")
+def delete_entry(username):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if session["user"]:
+        latest_entry_delete = mongo.db.entries.find({"created_by": username}).sort(username, -1)  
+        latest_delete = list(latest_entry_delete)
+        last_entry_list = latest_delete[-1]
+        last_entry_list_final = list(last_entry_list.items())
+        final_delete = last_entry_list_final[1][1]
+        delete_id = last_entry_list_final[0][1]
+    
+        mongo.db.entries.remove({"_id": delete_id})
+        flash("Task Successfully Deleted!")
+        return redirect(url_for("profile", username=username))
+
+
 
 @app.route("/edit_entry/<username>", methods=["GET", "POST"])
 def edit_entry(username):
@@ -136,11 +154,7 @@ def edit_entry(username):
         last_entry_list = latest_edit[-1]
         last_entry_list_final = list(last_entry_list.items())
         final_edit = last_entry_list_final[1][1]
-        score = last_entry_list_final[7][1]
         edit_id = last_entry_list_final[0][1]
-        print(edit_id)
-        print(final_edit)
-        print(score)
 
         if request.method == "POST":
         
