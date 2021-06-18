@@ -27,6 +27,7 @@
     <input id="comment_text" name="comment_text" type="text" class="validate" minlength="1" maxlength="50" required>
     <br>
     <button type="submit" class="btn btn-primary">Edit Task</button>
+    <a href="{{ url_for('profile', username=username) }}" class="btn btn-primary">Cancel</a>
 </form>
 
 {% endblock %}

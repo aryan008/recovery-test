@@ -115,15 +115,6 @@ def profile(username):
         day_1 = datetime.strptime(date_entered, "%Y-%m-%d")
         day_2 = datetime.strptime(today, "%Y-%m-%d")
 
-        latest_entry_edit = mongo.db.entries.find({"created_by": username}).sort(username, -1)  
-        latest_edit = list(latest_entry_edit)
-        last_entry_list = latest_edit[-1]
-        last_entry_list_final = list(last_entry_list.items())
-        final_edit = last_entry_list_final[1][1]
-        score = last_entry_list_final[7][1]
-        """print(final_edit)
-        print(score)
-        print("AD")"""
         
         # https://stackoverflow.com/questions/8419564/difference-between-two-dates-in-python
         date_difference = abs((day_1 - day_2).days)
