@@ -397,6 +397,16 @@ def new_entry():
         return render_template("new_entry.html", options = options)
 
 
+@app.route("/manage_entries", methods=["GET", "POST"])
+def manage_entries():
+    if request.method == "POST":
+        
+        flash("Entry deleted")
+        return redirect(url_for("get_categories"))
+
+    return render_template("manage_entries.html")
+
+
 def get_date(username):
     try:
         username = mongo.db.users.find_one(

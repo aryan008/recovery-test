@@ -33,9 +33,11 @@
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="{{ url_for('get_recovery') }}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
                         {% if session.user %}
+                        {% if session.user|lower == "admin"|lower %}
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('manage_entries') }}">Manage Entries</a></li>
+                        {% endif %}
                         <li class="nav-item"><a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Manage Profile</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url_for('new_entry') }}">New Entry</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Manage Categories</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Log Out</a></li>
                         {% else %}
                         <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Log In</a></li>
