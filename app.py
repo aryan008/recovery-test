@@ -402,12 +402,17 @@ def manage_entries():
     user = mongo.db.users.find_one({"username": session["user"]})
     # Only admin can access this page
     if session['user'] == 'admin':
-        print(session['user'])
         full_entries = mongo.db.entries.find()
         full_entries_list = list(full_entries)
-       
 
-        return render_template("manage_entries.html", full_entries_list=full_entries_list)
+        if request.method == "POST":
+            print(session['user'])
+       
+            mongo.db.entries.remove()
+            flash("Task Successfully Deleted")
+            return redirect(url_for("manage_entries"))
+        
+    return render_template("manage_entries.html", full_entries_list=full_entries_list)
 
 
 def get_date(username):
