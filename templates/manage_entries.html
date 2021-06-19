@@ -2,5 +2,9 @@
 {% block content %}
 
     Manage entries
+    {% for entry in full_entries %}
+    {{ entry }} <a href="">Delete</a>
+    <br>
+    {% endfor %}
 
 {% endblock %}

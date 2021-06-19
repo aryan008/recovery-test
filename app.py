@@ -397,14 +397,19 @@ def new_entry():
         return render_template("new_entry.html", options = options)
 
 
-@app.route("/manage_entries", methods=["GET", "POST"])
+@app.route("/manage_entries/", methods=["GET", "POST"])
 def manage_entries():
-    if request.method == "POST":
-        
-        flash("Entry deleted")
-        return redirect(url_for("get_categories"))
+    user = mongo.db.users.find_one({"username": session["user"]})
+    # Only admin can access this page
+    if session['user'] == 'admin':
+        print(session['user'])
+        full_entries = mongo.db.entries.find()
+        full_entries_list = list(full_entries)
+        for entry in full_entries_list:
+            for key in entry:
+                print(entry[key])
 
-    return render_template("manage_entries.html")
+        return render_template("manage_entries.html", full_entries=full_entries)
 
 
 def get_date(username):
