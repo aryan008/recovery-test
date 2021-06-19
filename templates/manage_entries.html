@@ -2,8 +2,10 @@
 {% block content %}
 
     Manage entries
-    {% for entry in full_entries %}
-    {{ entry }} <a href="">Delete</a>
+    <br>
+    {% for entry in full_entries_list %}
+    Created By: {{ entry.created_by }}, Date: {{ entry.user_chosen_date }}, Score: {{ entry.score }}% <a class="btn btm-sm btn-danger" href="">Delete</a>
+    <br>
     <br>
     {% endfor %}
 

@@ -405,11 +405,9 @@ def manage_entries():
         print(session['user'])
         full_entries = mongo.db.entries.find()
         full_entries_list = list(full_entries)
-        for entry in full_entries_list:
-            for key in entry:
-                print(entry[key])
+       
 
-        return render_template("manage_entries.html", full_entries=full_entries)
+        return render_template("manage_entries.html", full_entries_list=full_entries_list)
 
 
 def get_date(username):
