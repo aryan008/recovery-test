@@ -34,8 +34,9 @@
                         <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
                         {% if session.user %}
                         {% if session.user|lower == "admin"|lower %}
-                        <li class="nav-item"><a class="nav-link" href="{{ url_for('manage_entries', username=session['user']) }}">Manage Entries</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('manage_entries') }}">Manage Entries</a></li>
                         {% endif %}
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('all_entries') }}">All Entries</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Manage Profile</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url_for('new_entry') }}">New Entry</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Log Out</a></li>

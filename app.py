@@ -396,23 +396,34 @@ def new_entry():
         options = mongo.db.recovery.find()
         return render_template("new_entry.html", options = options)
 
+@app.route("/all_entries", methods=["GET", "POST"])
+def all_entries():
+    username = mongo.db.users.find_one({"username": session["user"]})
+    if session['user']:
+        full_entries = mongo.db.entries.find()
+        full_entries_list = list(full_entries)
+        
+    return render_template("all_entries.html", full_entries_list=full_entries_list)
 
-@app.route("/manage_entries/<username>", methods=["GET", "POST"])
-def manage_entries(username):
+@app.route("/manage_entries", methods=["GET", "POST"])
+def manage_entries():
     username = mongo.db.users.find_one({"username": session["user"]})
     # Only admin can access this page
     if session['user'] == 'admin':
         full_entries = mongo.db.entries.find()
         full_entries_list = list(full_entries)
-        print(session['user'])
-
-        if request.method == "POST":
-            print(session['user'])
-            mongo.db.entries.remove({"created_by": username})
-            flash("Removal done")
-            return redirect(url_for("profile", username=username))
         
-    return render_template("manage_entries.html", full_entries_list=full_entries_list, username=username)
+    return render_template("manage_entries.html", full_entries_list=full_entries_list)
+
+
+@app.route("/delete_user", methods=["GET", "POST"])
+def delete_user():
+    username = mongo.db.users.find_one({"username": session["user"]})
+    # Only admin can access this page
+    if session['user'] == "admin":
+        mongo.db.entries.remove({"created_by": username})
+        flash("Removal done")
+        return redirect(url_for("login"))
 
 
 def get_date(username):
