@@ -396,7 +396,8 @@ def new_entry():
         options = mongo.db.recovery.find()
         return render_template("new_entry.html", options = options)
 
-@app.route("/all_entries", methods=["GET", "POST"])
+
+@app.route("/all_entries")
 def all_entries():
     username = mongo.db.users.find_one({"username": session["user"]})
     if session['user']:
@@ -405,15 +406,16 @@ def all_entries():
         
     return render_template("all_entries.html", full_entries_list=full_entries_list)
 
-@app.route("/manage_entries", methods=["GET", "POST"])
-def manage_entries():
+
+@app.route("/manage_users/", methods=["GET", "POST"])
+def manage_users():
     username = mongo.db.users.find_one({"username": session["user"]})
     # Only admin can access this page
     if session['user'] == 'admin':
-        full_entries = mongo.db.entries.find()
-        full_entries_list = list(full_entries)
+        full_users = mongo.db.users.find()
+        full_users_list = list(full_users)
         
-    return render_template("manage_entries.html", full_entries_list=full_entries_list)
+    return render_template("manage_users.html", full_users_list=full_users_list)
 
 
 @app.route("/delete_user", methods=["GET", "POST"])

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+    Manage Users
+    <br>
+    {% for user in full_users_list %}
+    User Name {{ user.username }} 
+    >
+    <br>
+    <br>
+    {% endfor %}
+
+{% endblock %}
