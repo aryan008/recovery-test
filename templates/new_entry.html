@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% if date_difference == 0 %}
+<h3>You have made today's entry already!</h3>
+{% else %}
 <h2>Let's see how recovered you are!</h2>
 <h3>Choose today's date to log recovery:</h3>
 <br>
@@ -28,5 +31,5 @@
     <br>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
+{% endif %}
 {% endblock %}
