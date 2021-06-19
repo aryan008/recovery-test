@@ -397,22 +397,22 @@ def new_entry():
         return render_template("new_entry.html", options = options)
 
 
-@app.route("/manage_entries/", methods=["GET", "POST"])
-def manage_entries():
-    user = mongo.db.users.find_one({"username": session["user"]})
+@app.route("/manage_entries/<username>", methods=["GET", "POST"])
+def manage_entries(username):
+    username = mongo.db.users.find_one({"username": session["user"]})
     # Only admin can access this page
     if session['user'] == 'admin':
         full_entries = mongo.db.entries.find()
         full_entries_list = list(full_entries)
+        print(session['user'])
 
         if request.method == "POST":
             print(session['user'])
-       
-            mongo.db.entries.remove()
-            flash("Task Successfully Deleted")
-            return redirect(url_for("manage_entries"))
+            mongo.db.entries.remove({"created_by": username})
+            flash("Removal done")
+            return redirect(url_for("profile", username=username))
         
-    return render_template("manage_entries.html", full_entries_list=full_entries_list)
+    return render_template("manage_entries.html", full_entries_list=full_entries_list, username=username)
 
 
 def get_date(username):
