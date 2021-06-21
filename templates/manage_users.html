@@ -4,8 +4,7 @@
     Manage Users
     <br>
     {% for user in full_users_list %}
-    User Name {{ user.username }} 
-    >
+    User Name: <strong>{{ user.username }}</strong> <a href="{{ url_for('delete_user', username=user.username) }}" class="btn btn-danger btn-primary">Delete</a>
     <br>
     <br>
     {% endfor %}

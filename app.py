@@ -67,7 +67,6 @@ def create_account():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful! {}, thanks for joining the team.".format(request.form.get("username")))
-        return redirect(url_for("create_account"))
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("create_account.html")
@@ -534,14 +533,14 @@ def manage_users():
         abort(404)
 
 
-@app.route("/delete_user", methods=["GET", "POST"])
-def delete_user():
-    username = mongo.db.users.find_one({"username": session["user"]})
+@app.route("/delete_user/<username>", methods=["GET", "POST"])
+def delete_user(username):
+    username_admin = mongo.db.users.find_one({"username": session["user"]})
     # Only admin can access this page
     if session['user'] == "admin":
-        mongo.db.entries.remove({"created_by": username})
+        mongo.db.users.remove({"username": username})
         flash("Removal done")
-        return redirect(url_for("login"))
+        return redirect(url_for("about"))
 
     else:
         abort(404)
