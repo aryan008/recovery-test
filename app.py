@@ -539,6 +539,7 @@ def delete_user(username):
     # Only admin can access this page
     if session['user'] == "admin":
         mongo.db.users.remove({"username": username})
+        mongo.db.entries.remove({"created_by": username})
         flash("Removal done")
         return redirect(url_for("about"))
 
