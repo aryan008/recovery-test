@@ -138,6 +138,25 @@ def delete_user_user(username):
     else:
         abort(404)
 
+@app.route("/password_update", methods=["GET", "POST"])
+def password_update():
+    if request.method == "POST":
+        old_password = mongo.db.users.find_one(
+            {"username": session["user"]})["password"]
+
+        if check_password_hash(old_password, request.form.get("old_password")):
+            mongo.db.users.update_one(
+                {"username": session["user"]},
+                {"$set": {"password": generate_password_hash(
+                    request.form.get("newpassword"))}})
+            flash("Password Successfully updated")
+            return redirect(url_for("get_recovery"))
+        else:
+            flash("Password is incorrect, please try again")
+            return redirect(url_for("pw_change"))
+
+    return render_template("pw_change.html")
+
 
 @app.route("/delete_entry/<username>")
 def delete_entry(username):
