@@ -106,6 +106,7 @@ def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    print(username)
 
     if session["user"]:
         result = get_result(username)
@@ -119,6 +120,19 @@ def profile(username):
         date_difference = abs((day_1 - day_2).days)
         
         return render_template("profile.html", username=username, result=result, date_difference=date_difference, date_entered=date_entered)
+
+    else:
+        abort(404)
+
+@app.route("/delete_user_user/<username>", methods=["GET", "POST"])
+def delete_user_user(username):
+    username_user = mongo.db.users.find_one({"username": session["user"]})
+    
+    if session['user']:
+        mongo.db.users.remove({"username": username})
+        mongo.db.entries.remove({"created_by": username})
+        session.pop("user")
+        return redirect(url_for("create_account"))
 
     else:
         abort(404)

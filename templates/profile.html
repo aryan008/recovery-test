@@ -4,6 +4,7 @@
     <div class="row">
         <h3>
             {{ username }}'s Profile
+            Delete account: <strong>{{ username.username }}</strong> <a href="{{ url_for('delete_user_user', username=username) }}" class="btn btn-danger btn-primary">Delete</a>
             <br>
             {% if result == "No entry yet, please submit one" %}
             No entry yet since you created the account, please submit one here.
