@@ -2,6 +2,17 @@
 {% block content %}
 
     Manage Users
+    <form action="{{ url_for('search_users') }}" method="post">
+        <div>
+            <input type="text" name="query_user" id="query_user" class="validate" required>
+            <label for="query_user">Search User's</label>
+        </div>
+        <br>
+        <div>
+            <a href="{{ url_for('manage_users') }}" class="red btn text-shadow">Reset</a>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
     <br>
     {% for user in full_users_list %}
     User Name: <strong>{{ user.username }}</strong> <a href="{{ url_for('delete_user', username=user.username) }}" class="btn btn-danger btn-primary">Delete</a>

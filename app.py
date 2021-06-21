@@ -534,13 +534,14 @@ def all_entries():
         abort(404)
 
 
-@app.route("/search", methods=["GET", "POST"])
-def search():
+@app.route("/search_entries", methods=["GET", "POST"])
+def search_entries():
     username = mongo.db.users.find_one({"username": session["user"]})
-    query = request.form.get("query")
-    tasks = list(mongo.db.entries.find({"$text": {"$search": query}}))
+    query_entry = request.form.get("query_entry")
+    # Index creation: https://docs.mongodb.com/manual/indexes/
+    entries = list(mongo.db.entries.find({"$text": {"$search": query_entry}}))
     
-    return render_template("all_entries.html", full_entries_list=tasks)
+    return render_template("all_entries.html", full_entries_list=entries)
 
 
 @app.route("/manage_users/", methods=["GET", "POST"])
@@ -555,6 +556,18 @@ def manage_users():
 
     else:
         abort(404)
+
+@app.route("/search_users", methods=["GET", "POST"])
+def search_users():
+    username = mongo.db.users.find_one({"username": session["user"]})
+    # Only admin can access this page
+    if session['user'] == "admin":
+        username = mongo.db.users.find_one({"username": session["user"]})
+        query_user = request.form.get("query_user")
+        # Index creation: https://docs.mongodb.com/manual/indexes/
+        users = list(mongo.db.users.find({"$text": {"$search": query_user}}))
+        
+        return render_template("manage_users.html", full_users_list=users)
 
 
 @app.route("/delete_user/<username>", methods=["GET", "POST"])
