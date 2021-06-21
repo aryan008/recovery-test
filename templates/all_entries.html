@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
-    Manage entries
+    <form action="{{ url_for('search') }}" method="post">
+        <div>
+            <input type="text" name="query" id="query" class="validate" required>
+            <label for="query">Search User's</label>
+        </div>
+        <br>
+        <div>
+            <a href="{{ url_for('all_entries') }}" class="red btn text-shadow">Reset</a>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+    All entries
     <br>
     {% for entry in full_entries_list %}
     Created By: {{ entry.created_by }}, Date: {{ entry.user_chosen_date }}, Score: {{ entry.score }}% 
