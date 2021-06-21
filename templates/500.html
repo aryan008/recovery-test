@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+Page not found
+{% endblock %}
+
+{% block content %}
+
+<!-- 500 error page -->
+
+    <div>
+
+        <div>
+            <h1>Internal Server Error</h1>
+            <h3>Click <a href="{{url_for('get_recovery')}}">here</a> to return to the Login Page.</h3>
+
+        </div>
+    </div>
+
+
+{% endblock %}

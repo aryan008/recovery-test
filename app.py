@@ -11,7 +11,7 @@ os.environ.setdefault("MONGO_DBNAME", "recovery_test") """
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, abort)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from datetime import datetime
@@ -121,7 +121,8 @@ def profile(username):
         
         return render_template("profile.html", username=username, result=result, date_difference=date_difference, date_entered=date_entered)
 
-    return redirect(url_for("login"))
+    else:
+        abort(404)
 
 
 @app.route("/delete_entry/<username>")
@@ -140,6 +141,9 @@ def delete_entry(username):
         mongo.db.entries.remove({"_id": delete_id})
         flash("Task Successfully Deleted!")
         return redirect(url_for("profile", username=username))
+
+    else:
+        abort(404)
 
 
 
@@ -254,7 +258,8 @@ def edit_entry(username):
         options = mongo.db.recovery.find()
         return render_template("edit_entry.html", username=username, options=options)
 
-    return redirect(url_for("login"))
+    else:
+        abort(404)
 
 
 @app.route("/logout")
@@ -495,6 +500,9 @@ def new_entry():
         options = mongo.db.recovery.find()
         return render_template("new_entry.html", options = options)
 
+    else:
+        abort(500)
+
 
 @app.route("/all_entries")
 def all_entries():
@@ -506,8 +514,10 @@ def all_entries():
 
         # https://www.programiz.com/python-programming/methods/list/reverse
         reversed_list = full_entries_list.reverse()
-        
-    return render_template("all_entries.html", full_entries_list=full_entries_list)
+        return render_template("all_entries.html", full_entries_list=full_entries_list)
+    
+    else:
+        abort(404)
 
 
 @app.route("/manage_users/", methods=["GET", "POST"])
@@ -518,7 +528,10 @@ def manage_users():
         full_users = mongo.db.users.find()
         full_users_list = list(full_users)
         
-    return render_template("manage_users.html", full_users_list=full_users_list)
+        return render_template("manage_users.html", full_users_list=full_users_list)
+
+    else:
+        abort(404)
 
 
 @app.route("/delete_user", methods=["GET", "POST"])
@@ -529,6 +542,9 @@ def delete_user():
         mongo.db.entries.remove({"created_by": username})
         flash("Removal done")
         return redirect(url_for("login"))
+
+    else:
+        abort(404)
 
 
 def get_date(username):
