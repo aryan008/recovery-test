@@ -292,7 +292,6 @@ def new_entry():
 
         # https://stackoverflow.com/questions/8419564/difference-between-two-dates-in-python
         date_difference = abs((new_today - new_entry).days)
-        print(date_difference)
 
         if date_difference !=0:
             if request.method == "POST":
@@ -500,9 +499,11 @@ def new_entry():
 @app.route("/all_entries")
 def all_entries():
     username = mongo.db.users.find_one({"username": session["user"]})
+
     if session['user']:
         full_entries = mongo.db.entries.find()
         full_entries_list = list(full_entries)
+
         # https://www.programiz.com/python-programming/methods/list/reverse
         reversed_list = full_entries_list.reverse()
         
