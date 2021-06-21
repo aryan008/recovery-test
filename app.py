@@ -132,6 +132,7 @@ def delete_user_user(username):
         mongo.db.users.remove({"username": username})
         mongo.db.entries.remove({"created_by": username})
         session.pop("user")
+        flash("Profile Deleted!")
         return redirect(url_for("create_account"))
 
     else:
