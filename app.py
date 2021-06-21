@@ -503,6 +503,7 @@ def all_entries():
     if session['user']:
         full_entries = mongo.db.entries.find()
         full_entries_list = list(full_entries)
+        reversed_list = full_entries_list.reverse()
         
     return render_template("all_entries.html", full_entries_list=full_entries_list)
 
