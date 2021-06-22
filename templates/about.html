@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h2>What Attributes do we measure?</h2>
-
+    <h1 class="text-center"><strong>What Attributes do we measure?</strong></h1>
+    <br>
     {% for attr in attribute_json %}
         {% if loop.index % 2 != 0 %}
         <div class="row featurette">
             <div class="col-md-7">
-                <h3>{{ attr.attribute_name }}</h3>
+                <h3><strong>{{ attr.attribute_name }}</strong></h3>
                 <p>{{ attr.attribute_importance }}</p>
                 <p><strong>Read More:</strong> <u><a class = "font-weight-bold" href = "{{ attr.importance_link_info }}" target = "_blank" rel="noopener">{{ attr.importance_link_info }}</a></u></p>
             </div>
@@ -22,7 +22,7 @@
                 <img src="{{ attr.img_src }}" alt="{{ attr.img_alt_tag }}" class="featurette-image image-responsive">
             </div>
             <div class="col-md-7">
-                <h3>{{ attr.attribute_name }}</h3>
+                <h3><strong>{{ attr.attribute_name }}</strong></h3>
                 <p>{{ attr.attribute_importance }}</p>
                 <p><strong>Read More:</strong> <u><a class = "font-weight-bold" href = "{{ attr.importance_link_info }}" target = "_blank" rel="noopener">{{ attr.importance_link_info }}</a></u></p>
             </div>
