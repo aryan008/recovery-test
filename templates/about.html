@@ -9,11 +9,11 @@
             {% if loop.index % 2 != 0 %}
             <div class="row featurette">
                 <div class="col-md-8">
-                    <h3>{{ attr.attribute_name }} <i class = "{{ attr.attribute_icon }}"></i></h3>
+                    <h2>{{ attr.attribute_name }} <i class = "{{ attr.attribute_icon }}"></i></h2>
                     <p class = "attribute-importance">{{ attr.attribute_importance }}</p>
                     <p><em>Read More:</em> 
                         <u>
-                            <a class="font-weight-bold" href="{{ attr.importance_link_info }}" target="_blank" rel="noopener">{{ attr.importance_link_info }}</a>
+                            <a class="font-weight-bold links" href="{{ attr.importance_link_info }}" target="_blank" rel="noopener">{{ attr.importance_link_info }}</a>
                         </u>
                     </p>
                 </div>
@@ -28,11 +28,11 @@
                     <img src="{{ attr.img_src }}" alt="{{ attr.img_alt_tag }}" class="featurette-image image-responsive">
                 </div>
                 <div class="col-md-8">
-                    <h3>{{ attr.attribute_name }} <i class = "{{ attr.attribute_icon }}"></i></h3>
+                    <h2>{{ attr.attribute_name }} <i class = "{{ attr.attribute_icon }}"></i></h2>
                     <p class = "attribute-importance">{{ attr.attribute_importance }}</p>
                     <p><em>Read More:</em> 
                         <u>
-                            <a class="font-weight-bold" href="{{ attr.importance_link_info }}" target="_blank" rel="noopener">{{ attr.importance_link_info }}</a>
+                            <a class="font-weight-bold links" href="{{ attr.importance_link_info }}" target="_blank" rel="noopener">{{ attr.importance_link_info }}</a>
                         </u>
                     </p>
                 </div>

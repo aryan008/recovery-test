@@ -5,7 +5,7 @@
     "img_src": "https://images.unsplash.com/photo-1548780607-46c78f38182d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80",
     "img_alt_tag": "Swirling water from a glass",
     "importance_link_info": "https://www.usada.org/athletes/substances/nutrition/fluids-and-hydration/",
-    "attribute_icon": "fas fa-tint"
+    "attribute_icon": "fas fa-tint water-font-awesome"
   },
   {
     "attribute_name": "Stretch",
@@ -13,7 +13,7 @@
     "img_src": "https://images.unsplash.com/photo-1600026453194-11ae289732b8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3RyZXRjaGluZ3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60",
     "img_alt_tag": "Man stretching his leg",
     "importance_link_info": "https://blog.bridgeathletic.com/stretching-improves-your-health-strength-training",
-    "attribute_icon": "fas fa-expand-arrows-alt"
+    "attribute_icon": "fas fa-expand-arrows-alt stretch-font-awesome"
   },
   {
     "attribute_name": "Self Myofascial Release (SMR)",
@@ -21,7 +21,7 @@
     "img_src": "https://pyxis.nymag.com/v1/imgs/51c/954/4f1bb1fa9fd1f868cd635fe12ccd755a3a-foamrollerlede.rhorizontal.w600.jpg",
     "img_alt_tag": "Man foam rolling",
     "importance_link_info": "https://puori.com/blogs/puorilife/benefits-of-self-myofascial-release",
-    "attribute_icon": "fas fa-toolbox"
+    "attribute_icon": "fas fa-toolbox smr-font-awesome"
   },
   {
     "attribute_name": "Cold Therapy",
@@ -29,7 +29,7 @@
     "img_src": "https://www.centreofexcellence.com/media/image/e9/08/9275b6ca0b64a0125467f1d892c8.jpeg",
     "img_alt_tag": "Man getting into ice cold water",
     "importance_link_info": "https://training-conditioning.com/article/hot-topic-cool-solutions-when-and-why-to-use-hot-cold-therapy-on-athletes/",
-    "attribute_icon": "fas fa-igloo"
+    "attribute_icon": "fas fa-igloo cold-font-awesome"
   },
   {
     "attribute_name": "Nutrition",
@@ -37,7 +37,7 @@
     "img_src": "https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     "img_alt_tag": "Chopping board full of vegetables",
     "importance_link_info": "https://kairostech.io/the-role-of-diet-nutrition-in-sports-performance/",
-    "attribute_icon": "fas fa-apple-alt"
+    "attribute_icon": "fas fa-apple-alt nutrition-font-awesome"
   },
   {
     "attribute_name": "Training",
@@ -45,7 +45,7 @@
     "img_src": "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1049&q=80",
     "img_alt_tag": "Woman training in the gym",
     "importance_link_info": "https://www.ais.gov.au/position_statements/content/training-load-in-relation-to-loading-and-unloading-phases-of-training",
-    "attribute_icon": "fas fa-dumbbell"
+    "attribute_icon": "fas fa-dumbbell train-font-awesome"
   },
   {
     "attribute_name": "Sleep",
@@ -53,7 +53,7 @@
     "img_src": "https://images.unsplash.com/photo-1529435022610-ccc7cab8499e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80",
     "img_alt_tag": "Man sleeping",
     "importance_link_info": "https://www.sleepfoundation.org/physical-activity/athletic-performance-and-sleep",
-    "attribute_icon": "fas fa-bed"
+    "attribute_icon": "fas fa-bed sleep-font-awesome"
   },
   {
     "attribute_name": "Feeling",
@@ -61,6 +61,6 @@
     "img_src": "https://images.unsplash.com/photo-1584464367415-2e7ff6482b54?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80",
     "img_alt_tag": "Woman smiling",
     "importance_link_info": "https://metrifit.com/blog/why-should-you-monitor-your-athletes/",
-    "attribute_icon": "far fa-smile-beam"
+    "attribute_icon": "far fa-smile-beam feeling-font-awesome"
   }
 ]

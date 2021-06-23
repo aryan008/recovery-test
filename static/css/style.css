@@ -42,8 +42,46 @@
     color: rgb(248, 240, 0);
 }
 
+/*---about.html---*/ 
 .attribute-importance {
     border: 1px solid white;
     border-radius: 10px;
     padding: 10px;
+}
+
+.links {
+    color: rgb(36, 127, 187);
+}
+
+/*---about.html font awesome icons---*/ 
+.water-font-awesome {
+    color: rgb(0, 166, 243);
+}
+
+.stretch-font-awesome {
+    color: rgb(243, 186, 0);
+}
+
+.smr-font-awesome {
+    color: rgb(233, 132, 107);
+}
+
+.cold-font-awesome {
+    color: rgb(84, 194, 245);
+}
+
+.nutrition-font-awesome {
+    color: rgb(88, 224, 106);
+}
+
+.train-font-awesome {
+    color: rgb(255, 244, 93);
+}
+
+.sleep-font-awesome {
+    color: rgb(230, 137, 253);
+}
+
+.feeling-font-awesome {
+    color: rgb(161, 255, 93);
 }
