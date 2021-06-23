@@ -1,7 +1,7 @@
 /*---Import of Google Fonts Lato font---*/
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-/*---General styling properties applied across the game---*/
+/*---General styling properties applied across the site---*/
 * {
     margin: 0;
     padding: 0;
@@ -11,16 +11,13 @@
     color: rgb(255,255,255);
 }
 
+.navbar {
+    padding: 0;
+}
 
 .flashes {
     padding: 15px;
     text-align: center;
-}
-
-.col-md-4 img {
-    width: 20rem;
-    height: 20rem;
-    border-radius: 50%;
 }
 
 .active {
@@ -28,12 +25,12 @@
     font-size: 1.1em;
 }
 
+/*---pw_change.html---*/ 
 .password-div {
     border: 3px solid white;
     border-radius: 10px;
 }
 
-/*---pw_change.html---*/ 
 #form-text {
     color: rgb(255,255,255)
 }
@@ -43,6 +40,12 @@
 }
 
 /*---about.html---*/ 
+.col-md-4 img {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+}
+
 .attribute-importance {
     border: 1px solid white;
     border-radius: 10px;
