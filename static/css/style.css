@@ -27,7 +27,7 @@
 
 /*---pw_change.html---*/ 
 .password-div {
-    border: 3px solid white;
+    border: 3px solid rgb(255,255,255);
     border-radius: 10px;
 }
 
@@ -44,16 +44,23 @@
     width: 20rem;
     height: 20rem;
     border-radius: 50%;
+    border: 3px solid rgb(255,255,255);
+    /*---https://css-tricks.com/almanac/properties/i/image-rendering/---*/
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
 }
 
 .attribute-importance {
-    border: 1px solid white;
+    border: 3px solid rgb(46, 45, 45);
     border-radius: 10px;
     padding: 10px;
+    color: rgb(46, 45, 45);
+    background-color: rgb(255,255,255);
 }
 
 .links {
-    color: rgb(36, 127, 187);
+    color: rgb(143, 198, 235);
 }
 
 /*---about.html font awesome icons---*/ 
