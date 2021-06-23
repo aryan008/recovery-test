@@ -5,7 +5,7 @@
         <div class = "container-fluid">
             <div class="row">
                 <div class="col-6 offset-3 mt-3 password-div">
-                    <h2 class = "text-center">Change the password to your account</h2>
+                    <h2 class = "text-center mt-3 mb-3">Change the password to your account</h2>
                     <label for="old_password">Current Password</label>
                     <input type="password" name="old_password" class="form-control" id="old_password" minlength="5" maxlength="15"
                         pattern="^[a-zA-Z0-9]{5,15}$" required>
@@ -14,6 +14,7 @@
                     <input type="password" name="newpassword" class="form-control" id="newpassword" minlength="5" maxlength="15"
                         pattern="^[a-zA-Z0-9]{5,15}$" required>
                     <div class="col-auto">
+                        <!--https://fontawesome.com/v5.15/icons/exclamation-triangle?style=solid-->
                         <i class="fas fa-exclamation-triangle form-warning-img"></i>
                         <i><em><span id="passwordHelpInline" id="form-text">Must be 5-15 characters long, using only letters & numbers.</span></em></i>
                     </div>

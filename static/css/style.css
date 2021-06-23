@@ -17,7 +17,7 @@
     text-align: center;
 }
 
-.col-md-5 img {
+.col-md-4 img {
     width: 20rem;
     height: 20rem;
     border-radius: 50%;
@@ -33,10 +33,17 @@
     border-radius: 10px;
 }
 
+/*---pw_change.html---*/ 
 #form-text {
     color: rgb(255,255,255)
 }
 
 .form-warning-img {
     color: rgb(248, 240, 0);
+}
+
+.attribute-importance {
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
 }

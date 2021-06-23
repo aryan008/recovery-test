@@ -4,55 +4,63 @@
     "attribute_importance": "Hydration is one of the most important nutritional concerns for an athlete. Approximately 60 percent of body weight is water. As an athlete trains or competes, fluid is lost through the skin through sweat and through the lungs while breathing. If this fluid is not replaced at regular intervals during practice or competition, it can lead to dehydration. A dehydrated athlete has a decreased volume of blood circulating through the body, and consequently exercising muscles do not receive enough oxygen with exhaustion setting in. The athlete's performance suffers as the by-products of exercise are not flushed out of the body as regularly as they should be. Research has shown that losing as little as 2% of total body weight can negatively affect athletic performance.",
     "img_src": "https://images.unsplash.com/photo-1548780607-46c78f38182d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80",
     "img_alt_tag": "Swirling water from a glass",
-    "importance_link_info": "https://www.usada.org/athletes/substances/nutrition/fluids-and-hydration/"
+    "importance_link_info": "https://www.usada.org/athletes/substances/nutrition/fluids-and-hydration/",
+    "attribute_icon": "fas fa-tint"
   },
   {
     "attribute_name": "Stretch",
     "attribute_importance": "Stretching can improve circulation, muscle flexibility, range of motion, and consequently, help athletes perform better in workouts and in competition. When exercising, muscles repeatedly flex and contract. Stretching causes muscles to lengthen and relax, resulting in the ability to maximize muscle engagement in the next workout. Stretching also boosts the body’s circulation by increasing blood flow throughout the body. Better blood circulation will increase the supply of nutrients throughout the body and aid with the removal of harmful waste from the body’s muscle tissues, which can ultimately accelerate recovery time. Finally, joint range of motion can be improved with stretching as well. This increased range of motion enables athletes to perform more dynamic tasks and improve technique in sport-specific areas. No matter what exercise background athletes come from, stretching is a universal weapon that can increase athletic development, and one that many elite athletes have adapted into their daily workout regimens.",
     "img_src": "https://images.unsplash.com/photo-1600026453194-11ae289732b8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3RyZXRjaGluZ3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60",
     "img_alt_tag": "Man stretching his leg",
-    "importance_link_info": "https://blog.bridgeathletic.com/stretching-improves-your-health-strength-training"
+    "importance_link_info": "https://blog.bridgeathletic.com/stretching-improves-your-health-strength-training",
+    "attribute_icon": "fas fa-expand-arrows-alt"
   },
   {
     "attribute_name": "Self Myofascial Release (SMR)",
     "attribute_importance": "One of the simplest and most effective ways an athlete can care for their body is to incorporate self myofascial release (SMR) techniques into their training programs. Current research suggests that SMR is an important and useful protocol to include in an athletic warm up and cool down, since it helps prepare the body for movement and accelerates recovery. Learning how to perform basic SMR techniques on oneself and investing in a preventative healthcare “toolbox” of equipment can help an athlete reduce chances of repetitive stress injury, minimize muscular imbalances and improve overall flexibility, function and athletic performance.",
     "img_src": "https://pyxis.nymag.com/v1/imgs/51c/954/4f1bb1fa9fd1f868cd635fe12ccd755a3a-foamrollerlede.rhorizontal.w600.jpg",
     "img_alt_tag": "Man foam rolling",
-    "importance_link_info": "https://puori.com/blogs/puorilife/benefits-of-self-myofascial-release"
+    "importance_link_info": "https://puori.com/blogs/puorilife/benefits-of-self-myofascial-release",
+    "attribute_icon": "fas fa-toolbox"
   },
   {
     "attribute_name": "Cold Therapy",
     "attribute_importance": "Hot and cold therapy are both effective ways to help athletes rehabilitate injuries and surgeries, as well as recover from strength and conditioning training. As a general rule of thumb, ice or cold therapy reduces inflammation while heat or hot therapy stimulates blood flow circulation. Both applications help reduce muscle spasms and alleviate pain. The ideology, similar to heat therapy, is rooted in the science of blood flow. The circulatory system transfers oxygen, nutrients, and hormones everywhere in your body. Simultaneously, this complex circuit removes metabolic wastes such as carbon dioxide and lactic acid, effectively flushing your system of toxins. The result, by increasing blood flow to specific parts of the body — encouraging your body to deliver more oxygen and nutrients to those areas — is that an athlete can speed up recovery, relieve pain and improve performance.",
     "img_src": "https://www.centreofexcellence.com/media/image/e9/08/9275b6ca0b64a0125467f1d892c8.jpeg",
     "img_alt_tag": "Man getting into ice cold water",
-    "importance_link_info": "https://training-conditioning.com/article/hot-topic-cool-solutions-when-and-why-to-use-hot-cold-therapy-on-athletes/"
+    "importance_link_info": "https://training-conditioning.com/article/hot-topic-cool-solutions-when-and-why-to-use-hot-cold-therapy-on-athletes/",
+    "attribute_icon": "fas fa-igloo"
   },
   {
     "attribute_name": "Nutrition",
     "attribute_importance": "At the most basic level, nutrition is important for athletes because it provides a source of energy required to perform the activity. The food we eat impacts on our strength training, performance and recovery. Not only is the type of food important for sports nutrition but the times we eat throughout the day also has an impact on our performance levels and our bodies ability to recover after exercising. While there are numerous general health benefits to a good diet, there are 3 main purposes a nutrition plan has to fulfil in relation to sports performance - Provide energy for training & competition, Facilitate recovery after training & competition & Achieve & maintain optimal body weight & composition.",
     "img_src": "https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     "img_alt_tag": "Chopping board full of vegetables",
-    "importance_link_info": "https://kairostech.io/the-role-of-diet-nutrition-in-sports-performance/"
+    "importance_link_info": "https://kairostech.io/the-role-of-diet-nutrition-in-sports-performance/",
+    "attribute_icon": "fas fa-apple-alt"
   },
   {
     "attribute_name": "Training",
     "attribute_importance": "Sports performance is multifactorial in nature with exercise training, recovery, heath, nutrition, psychological skills and skill acquisition as key factors in athletic preparation. Systematic training prepares the athlete for the demands of their sport such that physical abilities and sport specific skills are enhanced. Well-planned training loads promote structural and metabolic adaptations that underpin training outcomes such as improved physical performance, injury and illness resistance, and optimised mental and physical health. Rest or ‘unloading’ may be defined as a substantial decrease in training load from the normal. A decrease in training load can be absolute (no training) or relative (as a percentage drop from normal load). Long periods of absolute rest cause a detraining effect and a reduced physical capacity. Effectively planning load and monitoring the individual training response can enhance training exposure and improve performance.",
     "img_src": "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1049&q=80",
     "img_alt_tag": "Woman training in the gym",
-    "importance_link_info": "https://www.ais.gov.au/position_statements/content/training-load-in-relation-to-loading-and-unloading-phases-of-training"
+    "importance_link_info": "https://www.ais.gov.au/position_statements/content/training-load-in-relation-to-loading-and-unloading-phases-of-training",
+    "attribute_icon": "fas fa-dumbbell"
   },
   {
     "attribute_name": "Sleep",
     "attribute_importance": "For both athletes and non-athletes, sleep is essential for overall health and wellbeing. It is integral in order to feel restored and function their best the next day. Another physical benefit includes allowing your heart to rest and cells and tissue to repair, which can help your body recover after physical exertion. Also, as you progress through the stages of sleep the changes in your heart rate and breathing throughout the night promote cardiovascular health. Sleep is also essential for cognitive processing, with a loss of sleep associated with a decline in cognitive function and the adverse effect on athletes whose sports require a high level decision making and adapting to new situations. More sleep, or extended sleep, can benefit athletes, their recovery, and their performance.",
     "img_src": "https://images.unsplash.com/photo-1529435022610-ccc7cab8499e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80",
     "img_alt_tag": "Man sleeping",
-    "importance_link_info": "https://www.sleepfoundation.org/physical-activity/athletic-performance-and-sleep"
+    "importance_link_info": "https://www.sleepfoundation.org/physical-activity/athletic-performance-and-sleep",
+    "attribute_icon": "fas fa-bed"
   },
   {
     "attribute_name": "Feeling",
     "attribute_importance": "It used to be the case that success in sport was based mostly on natural talent, but as competition developed, the area of practice became hugely important. Talent alone is no longer a guarantee to success; it must be combined with practice and training. Coaches and athletes are continually searching for that fraction of a percent extra that will give them the edge in competition so nothing can be left to chance. Data on all aspects of an athlete’s preparation is of significant value. If a coach can keep track of how an athlete is reacting to training, how they are sleeping, how they are eating and what their mood or stress levels are, they can make decisions based on that information. Those decisions are often the difference between winning and losing.",
     "img_src": "https://images.unsplash.com/photo-1584464367415-2e7ff6482b54?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80",
     "img_alt_tag": "Woman smiling",
-    "importance_link_info": "https://metrifit.com/blog/why-should-you-monitor-your-athletes/"
+    "importance_link_info": "https://metrifit.com/blog/why-should-you-monitor-your-athletes/",
+    "attribute_icon": "far fa-smile-beam"
   }
 ]
