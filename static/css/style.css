@@ -29,6 +29,14 @@ button, .links {
     cursor: pointer;
 }
 
+footer {
+    clear: both;
+    position: relative;
+    bottom: 0;
+    min-height: 120px;
+    margin-top:auto;
+}
+
 .footer-links a span i {
     height: 80px;
     width: 80px;
