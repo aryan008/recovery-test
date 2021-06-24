@@ -25,9 +25,36 @@
     font-size: 1.1em;
 }
 
-button {
+button, .links {
     cursor: pointer;
 }
+
+.footer-links a span i {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 1px solid rgb(255,255,255);
+    margin: 5px;
+    cursor: pointer;
+    font-size: 40px;
+    padding: 20px 0;
+}
+
+.twitter {
+    color: rgb(6, 179, 209);
+    background-color: rgb(255,255,255);
+}
+
+.facebook {
+    color: rgb(33, 83, 190);
+    background-color: rgb(255,255,255);
+}
+
+.github {
+    color: rgb(228, 6, 6);
+    background-color: rgb(255,255,255);
+}
+
 
 /*---home page---*/ 
 #home-page-circle {
