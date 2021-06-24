@@ -45,6 +45,10 @@ footer {
     padding: 20px 0;
 }
 
+.footer-links a span i:hover {
+    background-color: rgb(46, 45, 45);
+}
+
 .twitter {
     color: rgb(6, 179, 209);
     background-color: rgb(255,255,255);
