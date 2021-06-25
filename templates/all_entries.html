@@ -1,26 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
-
-    All entries
-    <form action="{{ url_for('search_entries') }}" method="post">
-        <div>
-            <input type="text" name="query_entry" id="query_entry" class="validate" required>
-            <label for="query_entry">Search User's</label>
+        <div class = "container-fluid">
+            <div class="row">
+                <div class="col-8 offset-2 mt-3 mb-3">
+                    <h3 class = text-center>All entries</h3>
+                    <form action="{{ url_for('search_entries') }}" method="post">
+                        <div>
+                            <label for="query_entry"><h4 class = "me-2">Search Users</h4></label>
+                            <input type="text" name="query_entry" id="query_entry" class="validate search-bar" required>
+                        </div>
+                        <br>
+                        <div>
+                            <a href="{{ url_for('all_entries') }}" type="button" class="btn btn-danger btn-sm">Reset</a>
+                            <button type="submit" type="button" class="btn btn-info btn-sm">Search</button>
+                        </div>
+                    </form>
+                    <br>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Created By</th>
+                                <th>Date</th>
+                                <th>Score %</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for entry in full_entries_list %}
+                            <tr>
+                                <td>{{ entry.created_by }}</td>
+                                <td>{{ entry.user_chosen_date }}</td>
+                                <td>{{ entry.score }} </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <br>
+                    <hr class="featurette-divider">
+                </div>
+            </div>
         </div>
-        <br>
-        <div>
-            <a href="{{ url_for('all_entries') }}" class="red btn text-shadow">Reset</a>
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
-    </form>
-    <br>
-    {% for entry in full_entries_list %}
-    Created By: {{ entry.created_by }}, Date: {{ entry.user_chosen_date }}, Score: {{ entry.score }}% 
-    <br>
-    <br>
-    {% endfor %}
 
-    
-    
 
 {% endblock %}

@@ -242,3 +242,10 @@ footer {
 .feeling-font-awesome {
     color: rgb(161, 255, 93);
 }
+
+
+/*---all_entries.html---*/ 
+.search-bar {
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
