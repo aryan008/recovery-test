@@ -106,7 +106,6 @@ def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    print(username)
 
     if session["user"]:
         result = get_result(username)

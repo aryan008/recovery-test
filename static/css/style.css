@@ -66,6 +66,12 @@ footer {
 
 
 /*---home page---*/ 
+.information-div {
+    border: 1px solid rgb(255,255,255);
+    font-size: .8rem;
+    border-radius: 10px;
+}
+
 #home-page-circle {
     width:33%;
     height: 250px;
