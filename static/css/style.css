@@ -309,12 +309,12 @@ footer {
 
 .result-text {
     background-color: transparent;
-    font-size: 1.2rem;
-    margin-top: 150px;
+    font-size: 2rem;
+    margin-top: 200px;
 }
 
 .entry-buttons {
     background-color: transparent;
-    margin-bottom: 50px;
+    margin-top: -50px;
 }
 
