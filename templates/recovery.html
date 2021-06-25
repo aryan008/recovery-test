@@ -7,6 +7,7 @@
             <hr class="featurette-divider">
             <br>
             <div class="information-div mb-3">
+                {% if user_check != "Yes" %}
                 <h3 class="text-center mt-4">Create an account to get Started!
                     <span>
                         <a href="{{ url_for('create_account') }}" type="button" class="btn btn-danger">Create Account</a>
@@ -19,7 +20,9 @@
                     </span>
                 </h3>
                 <br>
-                <h4 class="text-uppercase text-center"><u>Recovery Pod Membership</u></h4>
+                {% else %}
+                {% endif %}
+                <h4 class="text-uppercase text-center mt-4"><u>Recovery Pod Membership</u></h4>
                 <div class="text-center">
                     <h5>Personal Insights</h5>
                     <p>See how your habits change over the course of time</p>

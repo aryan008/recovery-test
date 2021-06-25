@@ -43,7 +43,17 @@ mongo = PyMongo(app)
 @app.route("/get_recovery")
 def get_recovery():
     recovery = mongo.db.recovery.find()
-    return render_template("recovery.html", recovery=recovery)
+    try:
+        if session["user"]:
+            user_check = "Yes"
+
+        else:
+            user_check = "No"
+
+    except KeyError as error:
+        user_check = "No"
+
+    return render_template("recovery.html", recovery=recovery, user_check=user_check)
 
 
 @app.route("/create_account", methods=["GET", "POST"])
