@@ -1,23 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
 
-    Manage Users
-    <form action="{{ url_for('search_users') }}" method="post">
-        <div>
-            <input type="text" name="query_user" id="query_user" class="validate" required>
-            <label for="query_user">Search User's</label>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8 offset-2 mt-3 mb-3">
+            <h3 class=text-center>Manage Users</h3>
+            <hr class="featurette-divider">
+            <form action="{{ url_for('search_users') }}" method="post">
+                <div>
+                    <label for="query_user"><h4 class = "me-2">Search Users</h4></label>
+                    <input type="text" name="query_user" id="query_user" class="validate search-bar" required>
+                </div>
+                <br>
+                <div>
+                    <a href="{{ url_for('manage_users') }}" class="btn btn-danger btn-sm">Reset</a>
+                    <button type="submit" class="btn btn-info btn-sm">Search</button>
+                </div>
+            </form>
+            <br>
+            {% for user in full_users_list %}
+            Username: {{ user.username }} <a
+                href="{{ url_for('delete_user', username=user.username) }}"
+                class="btn btn-danger btn-sm">Delete</a>
+            <br>
+            <hr class="featurette-divider">
+            {% endfor %}
         </div>
-        <br>
-        <div>
-            <a href="{{ url_for('manage_users') }}" class="red btn text-shadow">Reset</a>
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
-    </form>
-    <br>
-    {% for user in full_users_list %}
-    User Name: <strong>{{ user.username }}</strong> <a href="{{ url_for('delete_user', username=user.username) }}" class="btn btn-danger btn-primary">Delete</a>
-    <br>
-    <br>
-    {% endfor %}
+    </div>
+</div>
 
 {% endblock %}
