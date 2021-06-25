@@ -2,34 +2,40 @@
 {% block content %}
 
 {% if date_difference == 0 %}
-<h3>You have made today's entry already!</h3>
+<h3 class=text-center>You have made today's entry already!</h3>
 {% else %}
-<h2>Let's see how recovered you are!</h2>
-<h3>Choose today's date to log recovery:</h3>
-<br>
+<div class="row">
+    <div class="col-8 offset-2 mt-3 mb-3">
+        <h2 class=text-center>Let's see how recovered you are!</h2>
+        <hr class="featurette-divider">
+        <br>
 
-<form method="POST" action="{{ url_for('new_entry') }}">
-    <label for="start">Select Date:</label>
-    
-    <input type="date" id="date_choice" name="date_choice" value="date_choice" min="2021-06-01" max="2023-06-01" required>
-    {% for option in options %}
-        <div>
+        <form method="POST" action="{{ url_for('new_entry') }}">
+            <label for="start"><h4 class = "me-2">Select Today's Date:</h4></label>
+            <input type="date" id="date_choice" name="date_choice" value="date_choice" min="2021-06-01" max="2023-06-01" class = "date-search" required>
+            {% for option in options %}
+                <div>
+                    <br>
+                    <p class = "entry-option-headings"><u>{{ option.attribute_name }}</u></p>
+                    <label for="option.narrative"><em>{{ option.narrative }}</em></label>
+                    <br>
+                    <br>
+                    <select name="options.choice" id="options.choice" class = "options-dropdown">
+                        <option value="{{ option.option_one }}">{{ option.option_one }}</option>
+                        <option value="{{ option.option_two }}">{{ option.option_two }}</option>
+                        <option value="{{ option.option_three }}">{{ option.option_three }}</option>
+                    </select>
+                </div>
+            <hr class="featurette-divider">
+            {% endfor %}
             <br>
-            <p>{{ option.attribute_name }}</p>
-            <label for="option.narrative">{{ option.narrative }}</label>
+            <label for="comment_text"><h4 class = "me-2">Enter any Comments:</h4></label>
+            <input id="comment_text" name="comment_text" type="text" class="validate comment-box" minlength="1" maxlength="50">
             <br>
-            <select name="options.choice" id="options.choice">
-                <option value="{{ option.option_one }}">{{ option.option_one }}</option>
-                <option value="{{ option.option_two }}">{{ option.option_two }}</option>
-                <option value="{{ option.option_three }}">{{ option.option_three }}</option>
-            </select>
-        </div>
-    {% endfor %}
-    <br>
-    <label for="comment_text">Enter any Comments:</label>
-    <input id="comment_text" name="comment_text" type="text" class="validate" minlength="1" maxlength="50" required>
-    <br>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+            <hr class="featurette-divider">
+            <button type="submit" class="btn btn-success">Post Entry</button>
+        </form>
+    </div>
+</div>
 {% endif %}
 {% endblock %}
