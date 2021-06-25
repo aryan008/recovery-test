@@ -440,7 +440,7 @@ def new_entry():
             return render_template("new_entry.html", options = options, date_difference=date_difference)
 
         else:
-            flash("Task Already Added")
+            flash("You have made today's entry already!")
             return redirect(url_for("profile", username=username))
 
     except IndexError as error:
