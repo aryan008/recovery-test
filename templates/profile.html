@@ -2,35 +2,47 @@
 {% block content %}
 
     <div class="row">
-        <h3>
-            {{ username }}'s Profile
-            <br>
-            {% if username != "admin" %}
-            Delete account: <strong>{{ username.username }}</strong> <a href="{{ url_for('delete_user_user', username=username) }}" class="btn btn-danger btn-primary">Delete</a>
-            <br>
-            {% else %}
-            {% endif %}
+        <div class="col-8 offset-2 mt-3 mb-3">
+            <h3 class=text-center>{{ username }}'s Profile</h3>
             <br>
             {% if result == "No entry yet, please submit one" %}
-            No entry yet since you created the account, please submit one here.
+            <h3 class=text-center>No entry yet since you created the account, please submit one.</h3>
             {% elif date_difference ==0 %}
-            Today's result: Your score is {{ result }}%
-            <a class="btn btn-success" href="{{url_for('edit_entry', username=username)}}" role="button">Edit</a>
-            <a class="btn btn-danger" href="{{url_for('delete_entry', username=username)}}" role="button">Delete</a>
+            <div class = "result-container">
+                <div class="inner-container">
+                    <h6 class="result-div text-center">
+                    Today's result - Your score is:
+                    <p>{{ result }}%</p>
+                    </h6>
+                    <br>
+                    <div class = "entry-buttons text-center">
+                        <a class="btn btn-success" href="{{url_for('edit_entry', username=username)}}" role="button">Edit Entry</a>
+                        <a class="btn btn-danger" href="{{url_for('delete_entry', username=username)}}" role="button">Delete Entry</a>
+                    </div>
+                    <br>
+                    <p class = "text-center result-text">
+                        {% if result >= 70 %}
+                        You are well recovered!
+                        {% elif result >= 50 %}
+                        You are moderately recovered!
+                        {% else %}
+                        You are poorly recovered
+                        {% endif %}
+                        {% else %}
+                        <p class = "text-center result-text">You have entered in a date in the past/future, Log one for today!</p>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
             <br>
-            Date Entered: {{ date_entered }}
+            <hr class="featurette-divider">
+            {% if username != "admin" %}
+            Delete account: <strong>{{ username.username }}</strong> <a
+                href="{{ url_for('delete_user_user', username=username) }}" class="btn btn-danger btn-primary">Delete</a>
             <br>
-                {% if result >= 70 %}
-                You are well recovered!
-                {% elif result >= 50 %}
-                You are moderately recovered!
-                {% else %}
-                You are poorly recovered
-                {% endif %}
             {% else %}
-            You have entered in a date in the past/future, Log one for today!
             {% endif %}
-        </h3>
+        </div>
     </div>
 
 {% endblock %}
