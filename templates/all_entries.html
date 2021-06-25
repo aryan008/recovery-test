@@ -16,12 +16,12 @@
                         </div>
                     </form>
                     <br>
-                    <table class="table table-striped table-hover">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th>Created By</th>
                                 <th>Date</th>
-                                <th>Score %</th>
+                                <th>Score(%)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,7 +29,7 @@
                             <tr>
                                 <td>{{ entry.created_by }}</td>
                                 <td>{{ entry.user_chosen_date }}</td>
-                                <td>{{ entry.score }} </td>
+                                <td class = "score-percentage">{{ entry.score }}</td>
                             </tr>
                             {% endfor %}
                         </tbody>

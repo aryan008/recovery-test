@@ -64,6 +64,18 @@ footer {
     background-color: rgb(255,255,255);
 }
 
+.recovered {
+    background-color: rgb(15, 145, 15) !important;
+}
+
+.moderate {
+    background-color: rgb(216, 216, 39) !important;
+}
+
+.low {
+    background-color: rgb(190, 16, 16) !important;
+}
+
 
 /*---home page---*/ 
 .information-div {
@@ -248,4 +260,17 @@ footer {
 .search-bar {
     border: 1px solid rgb(255, 255, 255);
     border-radius: 10px;
+}
+
+.score-percentage {
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50% !important;
+    background-color: white;
+}
+
+
+.table>:not(caption)>*>* {
+    background-color: rgb(46, 45, 45);
 }
