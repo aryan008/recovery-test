@@ -17,6 +17,7 @@
                         </div>
                     </form>
                     <br>
+                    {% if full_entries_list|length > 0 %}
                     <table class="table">
                         <thead>
                             <tr>
@@ -30,11 +31,14 @@
                             <tr>
                                 <td>{{ entry.created_by }}</td>
                                 <td>{{ entry.user_chosen_date }}</td>
-                                <td class = "score-percentage">{{ entry.score }}</td>
+                                <td class="score-percentage">{{ entry.score }}</td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
+                    {% else %}
+                    <h3>No Results Found</h3>
+                    {% endif %}
                     <br>
                     <hr class="featurette-divider">
                 </div>

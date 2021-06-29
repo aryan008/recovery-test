@@ -18,13 +18,16 @@
                 </div>
             </form>
             <br>
+            {% if full_users_list|length > 0 %}
             {% for user in full_users_list %}
-            Username: {{ user.username }} <a
-                href="{{ url_for('delete_user', username=user.username) }}"
+            Username: {{ user.username }} <a href="{{ url_for('delete_user', username=user.username) }}"
                 class="btn btn-danger btn-sm">Delete</a>
             <br>
             <hr class="featurette-divider">
             {% endfor %}
+            {% else %}
+            <h3>No Results Found</h3>
+            {% endif %}
         </div>
     </div>
 </div>
