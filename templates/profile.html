@@ -7,7 +7,7 @@
             <hr class="featurette-divider">
             <br>
             {% if result == "No entry yet, please submit one" %}
-            <h3 class=text-center>No entry yet since you created the account, please submit one.</h3>
+            <h3 class="text-center awaiting-entry">No entry yet since you created the account, please submit one.</h3>
             {% elif date_difference ==0 %}
             <div class = "result-container">
                 <div class="inner-container">
@@ -30,7 +30,7 @@
                         You are poorly recovered
                         {% endif %}
                         {% else %}
-                        <p class = "text-center result-text">You have entered in a date in the past/future, Log one for today!</p>
+                        <p class = "text-center result-text awaiting-entry">You have entered in a date in the past/future, Log one for today!</p>
                         {% endif %}
                     </p>
                 </div>
@@ -39,7 +39,7 @@
             <hr class="featurette-divider">
             {% if username != "admin" %}
             <div class="text-center">
-            Delete account: <strong>{{ username.username }}</strong> <a
+            Delete account: {{ username }} <a
                 href="{{ url_for('delete_user_user', username=username) }}" class="btn btn-danger btn-primary">Delete Account</a>
             </div>
             <br>
