@@ -181,7 +181,7 @@ def delete_entry(username):
         delete_id = last_entry_list_final[0][1]
     
         mongo.db.entries.remove({"_id": delete_id})
-        flash("Task Successfully Deleted!")
+        flash("Entry Successfully Deleted!")
         return redirect(url_for("profile", username=username))
 
     else:
@@ -433,7 +433,7 @@ def new_entry():
                     "score": total
                 }
                 mongo.db.entries.insert_one(entry)
-                flash("Task Successfully Added")
+                flash("Entry Successfully Added")
                 return redirect(url_for("profile", username=username))
             
             options = mongo.db.recovery.find()
@@ -536,7 +536,7 @@ def new_entry():
                 "score": total
             }
             mongo.db.entries.insert_one(entry)
-            flash("Task Successfully Added")
+            flash("Entry Successfully Added")
             return redirect(url_for("profile", username=username))
 
         options = mongo.db.recovery.find()

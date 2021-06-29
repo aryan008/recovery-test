@@ -20,7 +20,8 @@
             <br>
             {% if full_users_list|length > 0 %}
             {% for user in full_users_list %}
-            Username: {{ user.username }} <a href="{{ url_for('delete_user', username=user.username) }}"
+            <!--https://stackoverflow.com/questions/9139075/how-to-show-a-confirm-message-before-delete-->
+            Username: {{ user.username }} <a href="{{ url_for('delete_user', username=user.username) }}" onclick="return confirm('Are you sure you want to delete this profile?');"
                 class="btn btn-danger btn-sm">Delete</a>
             <br>
             <hr class="featurette-divider">
