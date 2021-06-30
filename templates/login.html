@@ -1,43 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-6 offset-3 mt-3 mb-3 login-div">
-            <h2 class = "text-center mt-3 mb-3">Log In!</h2>
+            <h2 class="text-center mt-3 mb-3">Log In!</h2>
             <hr class="featurette-divider">
+            <!--form for user to login-->
             <form method="POST" action="{{ url_for('login') }}">
                 <div class="mb-3">
                     <i class="fas fa-user-plus"></i>
                     <label for="validationCustomUsername" class="form-label">Username</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" id="username" name="username" class="form-control" minlength="5" maxlength="15"
-                            pattern="^[a-zA-Z0-9]{5,15}$" id="validationCustomUsername" aria-describedby="inputGroupPrepend"
-                            required>
+                        <!--text input for username-->
+                        <input type="text" id="username" name="username" class="form-control" minlength="5"
+                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" id="validationCustomUsername"
+                            aria-describedby="inputGroupPrepend" required>
                         <div class="invalid-feedback">Enter your username.</div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <i class="fas fa-user-lock"></i>
                     <label for="password" class="form-label">Enter your Password</label>
-                    <input type="password" id="password" name="password" class="form-control" minlength="5" maxlength="15"
-                        pattern="^[a-zA-Z0-9]{5,15}$" aria-describedby="passwordHelpBlock" required>
+                    <!--password entering field-->
+                    <input type="password" id="password" name="password" class="form-control" minlength="5"
+                        maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" aria-describedby="passwordHelpBlock" required>
                 </div>
+                <!--login button-->
                 <button type="submit" class="btn btn-success btn-outline-light btn-lg">Log In</button>
             </form>
             <br>
             <div>
                 <p>New Here?
-                    <a href="{{ url_for('create_account') }}" class="light-blue-text text-darken-4">Create an Account</a>
+                    <!--account creation helper link-->
+                    <a href="{{ url_for('create_account') }}" class="light-blue-text text-darken-4">Create an
+                        Account</a>
                 </p>
             </div>
-
         </div>
-    <br>
-    <hr class="featurette-divider">
+        <br>
+        <hr class="featurette-divider">
     </div>
 </div>
-    
-
 {% endblock %}

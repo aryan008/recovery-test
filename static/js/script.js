@@ -37,7 +37,8 @@ $('.score-percentage').each(function() {
     }
 }); 
 
-/* The below function applies the correct class to the score of the user for todays entry */
+/* The below function applies the correct class to the score of the user for todays entry.
+Logic and code sourced from: https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field-in-form-without-reloading-page/21727518 */
 $('.result-container').each(function() {
     // grab the result the user got
     let userScore = $(".inner-container p");
@@ -54,4 +55,18 @@ $('.result-container').each(function() {
     } else {
         $(this).addClass( "low" );
     }
-}); 
+});
+
+/* The below function checks that the password reset feature works appropriately*/
+function passwordCheck() {
+    // get the new password
+    let password = document.querySelector('#newpassword');
+    // get the reentered password
+    let confirm = document.querySelector('#confirmpassword');
+    // if they are the same, update the password. If not, let the user know the passwords dont match
+    if(confirm.value == password.value) {
+        confirm.setCustomValidity('');
+    } else {
+        confirm.setCustomValidity('New password does not match the re-entered value');
+    }
+}

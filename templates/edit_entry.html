@@ -1,39 +1,47 @@
 {% extends "base.html" %}
 {% block content %}
-
 <div class="row">
     <div class="col-8 offset-2 mt-3 mb-3">
         <h2 class=text-center>Let's edit an old entry!</h2>
         <hr class="featurette-divider">
         <br>
-
+        <!--form to edit the entry-->
         <form method="POST" action="{{ url_for('edit_entry', username=username) }}">
-            <label for="start"><h4 class = "me-2">Select Today's Date:</h4></label>
-            <input type="date" id="date_choice" name="date_choice" value="date_choice" min="2021-06-01" max="2023-06-01" class = "date-search" required>
+            <label for="start">
+                <h4 class="me-2">Select Today's Date:</h4>
+            </label>
+            <input type="date" id="date_choice" name="date_choice" value="date_choice" min="2021-06-01" max="2023-06-01"
+                class="date-search" required>
+            <!--for loop to bring in each form option-->
             {% for option in options %}
-                <div>
-                    <br>
-                    <p class = "entry-option-headings"><u>{{ option.attribute_name }}</u></p>
-                    <label for="option.narrative"><em>{{ option.narrative }}</em></label>
-                    <br>
-                    <br>
-                    <select name="options.choice" id="options.choice" class = "options-dropdown">
-                        <option value="{{ option.option_one }}">{{ option.option_one }}</option>
-                        <option value="{{ option.option_two }}">{{ option.option_two }}</option>
-                        <option value="{{ option.option_three }}">{{ option.option_three }}</option>
-                    </select>
-                </div>
+            <div>
+                <br>
+                <p class="entry-option-headings"><u>{{ option.attribute_name }}</u></p>
+                <label for="option.narrative"><em>{{ option.narrative }}</em></label>
+                <br>
+                <br>
+                <select name="options.choice" id="options.choice" class="options-dropdown">
+                    <option value="{{ option.option_one }}">{{ option.option_one }}</option>
+                    <option value="{{ option.option_two }}">{{ option.option_two }}</option>
+                    <option value="{{ option.option_three }}">{{ option.option_three }}</option>
+                </select>
+            </div>
             <hr class="featurette-divider">
             {% endfor %}
             <br>
-            <label for="comment_text"><h4 class = "me-2">Enter any Comments:</h4></label>
-            <input id="comment_text" name="comment_text" type="text" class="validate comment-box" minlength="1" maxlength="50">
+            <!--comments text box for the user-->
+            <label for="comment_text">
+                <h4 class="me-2">Enter any Comments:</h4>
+            </label>
+            <input id="comment_text" name="comment_text" type="text" class="validate comment-box" minlength="1"
+                maxlength="50">
             <br>
             <hr class="featurette-divider">
+            <!--entry edit submission-->
             <button type="submit" class="btn btn-success">Edit Task</button>
+            <!--cancel button if user does not want to edit-->
             <a href="{{ url_for('profile', username=username) }}" class="btn btn-danger">Cancel</a>
         </form>
     </div>
 </div>
-
 {% endblock %}

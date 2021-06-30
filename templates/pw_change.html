@@ -1,36 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
-    
-    <form method="POST" action="{{url_for('password_update')}}">
-        <div class = "container-fluid">
-            <div class="row">
-                <div class="col-6 offset-3 mt-3 mb-3 password-div">
-                    <h2 class = "text-center mt-3 mb-3">Change the password to your account</h2>
-                    <hr class="featurette-divider">
-                    <label for="old_password">Current Password</label>
-                    <input type="password" name="old_password" class="form-control" id="old_password" minlength="5" maxlength="15"
-                        pattern="^[a-zA-Z0-9]{5,15}$" required>
-                    <br>
-                    <label for="newpassword">New Password</label>
-                    <input type="password" name="newpassword" class="form-control" id="newpassword" minlength="5" maxlength="15"
-                        pattern="^[a-zA-Z0-9]{5,15}$" required>
-                    <div class="col-auto">
-                        <!--https://fontawesome.com/v5.15/icons/exclamation-triangle?style=solid-->
-                        <i class="fas fa-exclamation-triangle form-warning-img"></i>
-                        <i><em><span id="passwordHelpInline" id="form-text">Must be 5-15 characters long, using only letters & numbers.</span></em></i>
-                    </div>
-                    <label class="mt-3" for="confirmpassword">Confirm New Password</label>
-                    <input type="password" class="form-control" id="confirmpassword" minlength="5" maxlength="15"
-                        pattern="^[a-zA-Z0-9]{5,15}$" required>
-                    <div class="text-center mt-3 mb-3">
-                        <button type="submit" id="change-password" class="btn btn-success btn-outline-light btn-lg">Change Password</button>
-                    </div>
+<!--form for user to change password-->
+<form method="POST" action="{{url_for('password_update')}}">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 offset-3 mt-3 mb-3 password-div">
+                <h2 class="text-center mt-3 mb-3">Change the password to your account</h2>
+                <hr class="featurette-divider">
+                <label for="old_password">Current Password</label>
+                <!--user to input the password they already have-->
+                <input type="password" name="old_password" class="form-control" id="old_password" minlength="5"
+                    maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+                <br>
+                <label for="newpassword">New Password</label>
+                <!--user to create new password-->
+                <input type="password" name="newpassword" class="form-control" id="newpassword" minlength="5"
+                    maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+                <div class="col-auto">
+                    <!--https://fontawesome.com/v5.15/icons/exclamation-triangle?style=solid-->
+                    <i class="fas fa-exclamation-triangle form-warning-img"></i>
+                    <i><em><span id="passwordHelpInline" id="form-text">Must be 5-15 characters long, using only letters
+                                & numbers.</span></em></i>
                 </div>
+                <label class="mt-3" for="confirmpassword">Confirm New Password</label>
+                <!--user to retype password and onChange JS element to check password validity-->
+                <input type="password" class="form-control" id="confirmpassword" onChange="passwordCheck()" minlength="5" maxlength="15"
+                    pattern="^[a-zA-Z0-9]{5,15}$" required>
+                <div class="text-center mt-3 mb-3">
+                    <!--Button to submit the new password-->
+                    <button type="submit" id="change-password" class="btn btn-success btn-outline-light btn-lg">Change
+                        Password</button>
+                </div>
+            </div>
             <br>
             <hr class="featurette-divider">
-            </div>
         </div>
-    </form>
-    
-
+    </div>
+</form>
 {% endblock %}
