@@ -536,6 +536,12 @@ footer {
 
 }
 
+@media only screen and (max-width:475px) {
+    .entry-option-headings {
+        font-size: 1.5rem;
+    }
+}
+
 @media only screen and (max-width:450px) {
     .edit-button, .delete-button {
         font-size: .5rem;
@@ -564,12 +570,33 @@ footer {
         font-size: .7rem;
         margin-top: 50px;
     }
+}
 
+@media only screen and (max-width:400px) {
+    .entry-option-headings {
+        font-size: 1.2rem;
+    }
+
+    #comment_text {
+        width: 250px;
+    }
 }
 
 @media only screen and (max-width:360px) {
     .table-entries {
         font-size: .6rem;
+    }
+
+    #comment_text {
+        width: 210px;
+    }
+
+    .option-narratives {
+        font-size: .8rem;
+    }
+
+    .edit-task-button, .cancel-button, .post-entry-button {
+        font-size: .8rem;
     }
 
 }

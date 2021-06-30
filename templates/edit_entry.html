@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row">
-    <div class="col-8 offset-2 mt-3 mb-3">
+    <div class="col-10 offset-1 mt-3 mb-3">
         <h2 class=text-center>Let's edit an old entry!</h2>
         <hr class="featurette-divider">
         <br>
@@ -17,7 +17,7 @@
             <div>
                 <br>
                 <p class="entry-option-headings"><u>{{ option.attribute_name }}</u></p>
-                <label for="option.narrative"><em>{{ option.narrative }}</em></label>
+                <label for="option.narrative"><em class = "option-narratives">{{ option.narrative }}</em></label>
                 <br>
                 <br>
                 <select name="options.choice" id="options.choice" class="options-dropdown">
@@ -38,9 +38,9 @@
             <br>
             <hr class="featurette-divider">
             <!--entry edit submission-->
-            <button type="submit" class="btn btn-success">Edit Task</button>
+            <button type="submit" class="btn btn-success edit-task-button">Edit Task</button>
             <!--cancel button if user does not want to edit-->
-            <a href="{{ url_for('profile', username=username) }}" class="btn btn-danger">Cancel</a>
+            <a href="{{ url_for('profile', username=username) }}" class="btn btn-danger cancel-button">Cancel</a>
         </form>
     </div>
 </div>

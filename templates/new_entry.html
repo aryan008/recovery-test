@@ -6,7 +6,7 @@
 <!--else statement-->
 {% else %}
 <div class="row">
-    <div class="col-8 offset-2 mt-3 mb-3">
+    <div class="col-10 offset-1 mt-3 mb-3">
         <h2 class=text-center>Let's see how recovered you are!</h2>
         <hr class="featurette-divider">
         <br>
@@ -23,7 +23,7 @@
             <div>
                 <br>
                 <p class="entry-option-headings"><u>{{ option.attribute_name }}</u></p>
-                <label for="option.narrative"><em>{{ option.narrative }}</em></label>
+                <label for="option.narrative"><em class = "option-narratives">{{ option.narrative }}</em></label>
                 <br>
                 <br>
                 <!--select dropdown for each option-->
@@ -45,7 +45,7 @@
             <br>
             <hr class="featurette-divider">
             <!--submit button to post entry-->
-            <button type="submit" class="btn btn-success">Post Entry</button>
+            <button type="submit" class="btn btn-success post-entry-button">Post Entry</button>
         </form>
     </div>
 </div>
