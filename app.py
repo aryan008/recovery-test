@@ -636,9 +636,6 @@ def new_entry():
 # Route for the user to view all entries on the all_entries page
 @app.route("/all_entries")
 def all_entries():
-    # grab the users username
-    username = mongo.db.users.find_one({"username": session["user"]})
-
     # if the user is in session
     if session['user']:
         # get all the entries ever made and turn into a list
@@ -657,9 +654,6 @@ def all_entries():
 # Route for the user to search all entries based on username
 @app.route("/search_entries", methods=["GET", "POST"])
 def search_entries():
-    # grab the users username
-    username = mongo.db.users.find_one({"username": session["user"]})
-
     # get the users search input
     query_entry = request.form.get("query_entry")
 
@@ -673,9 +667,6 @@ def search_entries():
 # Route for the administrator to manage users profiles based on username
 @app.route("/manage_users/", methods=["GET", "POST"])
 def manage_users():
-    # grab the username of the user
-    username = mongo.db.users.find_one({"username": session["user"]})
-
     # Only admin can access this page
     if session['user'] == 'admin':
         # get all users and turn into a list
@@ -691,8 +682,6 @@ def manage_users():
 # Route for the administrator to search all users based on username
 @app.route("/search_users", methods=["GET", "POST"])
 def search_users():
-    # grab the username
-    username = mongo.db.users.find_one({"username": session["user"]})
     # Only admin can access this page
     if session['user'] == "admin":
         username = mongo.db.users.find_one({"username": session["user"]})
@@ -710,8 +699,6 @@ def search_users():
 # Route for the administrator to delete all users based on username
 @app.route("/delete_user/<username>", methods=["GET", "POST"])
 def delete_user(username):
-    # get the username of the user
-    username_admin = mongo.db.users.find_one({"username": session["user"]})
     # Only admin can access this page
     if session['user'] == "admin":
         # remove the user
