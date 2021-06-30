@@ -42,6 +42,7 @@ mongo = PyMongo(app)
 
 
 # Route for the home page
+@app.route("/")
 @app.route("/get_recovery")
 def get_recovery():
     # Get the recovery collection from Mongo DB
