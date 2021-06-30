@@ -4,7 +4,7 @@
 <form method="POST" action="{{url_for('password_update')}}">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-6 offset-3 mt-3 mb-3 password-div">
+            <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-8 offset-sm-2 col-10 offset-1 mt-3 mb-3 password-div">
                 <h2 class="text-center mt-3 mb-3">Change the password to your account</h2>
                 <hr class="featurette-divider">
                 <label for="old_password">Current Password</label>
@@ -28,7 +28,7 @@
                     pattern="^[a-zA-Z0-9]{5,15}$" required>
                 <div class="text-center mt-3 mb-3">
                     <!--Button to submit the new password-->
-                    <button type="submit" id="change-password" class="btn btn-success btn-outline-light btn-lg">Change
+                    <button type="submit" id="change-password" class="btn btn-success btn-outline-light btn-lg pw-change-button">Change
                         Password</button>
                 </div>
             </div>

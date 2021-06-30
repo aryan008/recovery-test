@@ -427,7 +427,7 @@ footer {
         font-size: 1rem;
     }
 
-    .login-button {
+    .login-button, .pw-change-button, #passwordHelpInline {
         font-size: .8rem;
     } 
 
