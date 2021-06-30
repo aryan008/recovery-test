@@ -116,6 +116,7 @@ footer {
     float: left; 
     width: 33%;
     text-align: left;
+    justify-content: space-around;
 }
 
 .right-div {
@@ -190,12 +191,13 @@ footer {
 }
 
 /*---about.html---*/ 
-.col-md-4 img {
+.featurette-image {
     width: 20rem;
     height: 20rem;
     border-radius: 50%;
     border: 2px solid rgb(255,255,255);
     box-shadow: 0px 0px 20px rgba(100, 100, 100, 0.877);
+    margin: 35px auto;
     /*---https://css-tricks.com/almanac/properties/i/image-rendering/---*/
     image-rendering: auto;
     image-rendering: crisp-edges;
@@ -348,4 +350,74 @@ footer {
 
 .form-warning-img {
     color: rgb(248, 240, 0);
+}
+
+/*---Responsive media screen size design implementation---*/
+@media only screen and (max-width:1650px) {
+    #home-page-circle {
+    height: 170px;
+    width: 170px;
+    padding: 110px 5px;
+    }
+
+    #home-page-circle h4 {
+        font-size: 1rem;
+    }
+} 
+
+@media only screen and (max-width:1490px) {
+    #home-page-circle {
+        height: 170px;
+        width: 170px;
+    }
+
+    #home-page-circle h4 {
+        font-size: .9rem;
+    }    
+}
+
+@media only screen and (max-width:1300px) {
+    .featurette-image {
+        width: 18rem;
+        height: 18rem;
+    }
+
+
+    .attribute-importance {
+        font-size: .9rem;
+    }
+
+}
+
+@media only screen and (max-width:1135px) {
+    .featurette-image {
+        width: 15rem;
+        height: 15rem;
+    }
+
+
+    .attribute-importance {
+        font-size: .8rem;
+    }
+
+}
+
+@media only screen and (max-width:950px) {
+    .featurette-image {
+        width: 12rem;
+        height: 12rem;
+    }
+
+
+    .attribute-importance, .links {
+        font-size: .7rem;
+    }
+
+}
+
+@media only screen and (max-width:762px) {
+    .featurette-image {
+        display: none;
+    }
+
 }

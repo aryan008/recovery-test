@@ -10,7 +10,7 @@
         <!--if statement to pattern the json information in a criss-cross fashion-->
         {% if loop.index % 2 != 0 %}
         <div class="row featurette">
-            <div class="col-md-8">
+            <div class="col-xxl-8 col-lg-8 col-md-8">
                 <h2 class="text-center">{{ attr.attribute_name }} <i class="{{ attr.attribute_icon }}"></i></h2>
                 <p class="attribute-importance">{{ attr.attribute_importance }}</p>
                 <p><em>Read More:</em>
@@ -20,17 +20,17 @@
                     </u>
                 </p>
             </div>
-            <div class="col-md-4">
+            <div class="col-xxl-4 col-lg-3 col-md-2">
                 <img src="{{ attr.img_src }}" alt="{{ attr.img_alt_tag }}" class="featurette-image image-responsive">
             </div>
         </div>
         <hr class="featurette-divider">
         {% else %}
         <div class="row featurette">
-            <div class="col-md-4">
+            <div class="col-xl-4 col-lg-4 col-md-4">
                 <img src="{{ attr.img_src }}" alt="{{ attr.img_alt_tag }}" class="featurette-image image-responsive">
             </div>
-            <div class="col-md-8">
+            <div class="col-xl-7 offset-1 col-lg-7 offset-1 col-md-7 offset-1">
                 <h2 class="text-center">{{ attr.attribute_name }} <i class="{{ attr.attribute_icon }}"></i></h2>
                 <p class="attribute-importance">{{ attr.attribute_importance }}</p>
                 <p><em>Read More:</em>
