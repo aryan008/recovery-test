@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row">
-    <div class="col-8 offset-2 mt-3 container-fluid">
+    <div class="col-10 offset-1 mt-3 container-fluid">
         <h1 class="text-center mb-3">Welcome to the Recovery Pod!</h1>
         <h2 class="text-center">Measure your recovery to perform optimally</h2>
         <hr class="featurette-divider">
@@ -34,27 +34,35 @@
             <p><i>See our <a href="{{ url_for('about') }}">about page</a> for more details on the attributes tested!</i>
             </p>
         </div>
-        <div class="left-div">
-            <!--attributes-->
-            <ul class="home-page-attributes">
-                <li id="home-page-list-cold-therapy">Cold Therapy</li>
-                <li id="home-page-list-nutrition">Nutrition</li>
-                <li id="home-page-list-training">Training</li>
-                <li id="home-page-list-sleep">Sleep</li>
-            </ul>
-        </div>
-        <div class="right-div">
-            <!--attributes-->
-            <ul class="home-page-attributes">
-                <li id="home-page-list-stretch">Stretch</li>
-                <li id="home-page-list-smr">SMR</li>
-                <li id="home-page-list-feeling">Feeling</li>
-                <li id="home-page-list-hydration">Hydration</li>
-            </ul>
-        </div>
-        <div id="home-page-circle">
-            <!--circle in middle-->
-            <h4>Attributes measured</h4>
+        <div class="row">
+            <div class="col-4">
+                <div class="left-div">
+                    <!--attributes-->
+                    <ul class="home-page-attributes">
+                        <li id="home-page-list-cold-therapy">Cold Therapy</li>
+                        <li id="home-page-list-nutrition">Nutrition</li>
+                        <li id="home-page-list-training">Training</li>
+                        <li id="home-page-list-sleep">Sleep</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-4">
+                <div id="home-page-circle">
+                    <!--circle in middle-->
+                    <h4>Attributes measured</h4>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="right-div">
+                    <!--attributes-->
+                    <ul class="home-page-attributes">
+                        <li id="home-page-list-stretch">Stretch</li>
+                        <li id="home-page-list-smr">SMR</li>
+                        <li id="home-page-list-feeling">Feeling</li>
+                        <li id="home-page-list-hydration">Hydration</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <br>
         <hr class="featurette-divider">
