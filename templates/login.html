@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-6 offset-3 mt-3 mb-3 login-div">
+        <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-10 offset-1 mt-3 mb-3 login-div">
             <h2 class="text-center mt-3 mb-3">Log In!</h2>
             <hr class="featurette-divider">
             <!--form for user to login-->
@@ -27,7 +27,7 @@
                         maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" aria-describedby="passwordHelpBlock" required>
                 </div>
                 <!--login button-->
-                <button type="submit" class="btn btn-success btn-outline-light btn-lg">Log In</button>
+                <button type="submit" class="btn btn-success btn-outline-light btn-lg login-button">Log In</button>
             </form>
             <br>
             <div>

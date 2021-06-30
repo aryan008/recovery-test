@@ -396,7 +396,7 @@ footer {
     }
 
 
-    .attribute-importance {
+    .attribute-importance,.login-div, .create-account-div {
         font-size: .8rem;
     }
 
@@ -419,5 +419,16 @@ footer {
     .featurette-image {
         display: none;
     }
+
+}
+
+@media only screen and (max-width:576px) {
+    .account-button {
+        font-size: 1rem;
+    }
+
+    .login-button {
+        font-size: .8rem;
+    } 
 
 }
