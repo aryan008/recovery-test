@@ -420,6 +420,53 @@ footer {
         display: none;
     }
 
+    .result-container {
+        width: 32rem;
+        height: 32rem;
+    }
+
+    .inner-container {
+        width: 27rem;
+        height: 27rem;
+    }
+
+    .result-div {
+        font-size: 1rem;
+    }
+
+    .result-div p {
+        font-size: 10.5rem;
+    }
+
+    .result-text {
+        font-size: 1.3rem;
+    }
+
+}
+
+@media only screen and (max-width:606px) {
+    .result-container {
+        width: 30rem;
+        height: 30rem;
+    }
+
+    .inner-container {
+        width: 25rem;
+        height: 25rem;
+    }
+
+    .result-div {
+        font-size: .8rem;
+    }
+
+    .result-div p {
+        font-size: 9.5rem;
+    }
+
+    .result-text {
+        font-size: 1.1rem;
+    }
+
 }
 
 @media only screen and (max-width:576px) {
@@ -427,8 +474,102 @@ footer {
         font-size: 1rem;
     }
 
-    .login-button, .pw-change-button, #passwordHelpInline {
+    .login-button, .pw-change-button, #passwordHelpInline, .reset-button, .search-button, .delete-account-button {
         font-size: .8rem;
-    } 
+    }
+
+    .table-entries {
+        font-size: .8rem;
+    }
+
+    .result-container {
+        width: 27rem;
+        height: 27rem;
+    }
+
+    .inner-container {
+        width: 22rem;
+        height: 22rem;
+    }
+
+    .result-div {
+        font-size: .7rem;
+    }
+
+    .result-div p {
+        font-size: 8rem;
+    }
+
+    .result-text {
+        font-size: 1rem;
+        margin-top: 150px;
+    }
+
+}
+
+@media only screen and (max-width:533px) {
+    .edit-button, .delete-button {
+        font-size: .5rem;
+    }
+    .result-container {
+        width: 23rem;
+        height: 23rem;
+    }
+
+    .inner-container {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .result-div {
+        font-size: .7rem;
+    }
+
+    .result-div p {
+        font-size: 6rem;
+    }
+
+    .result-text {
+        font-size: .7rem;
+        margin-top: 120px;
+    }
+
+}
+
+@media only screen and (max-width:450px) {
+    .edit-button, .delete-button {
+        font-size: .5rem;
+    }
+    .result-container {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .inner-container {
+        width: 14rem;
+        height: 14rem;
+    }
+
+    .result-div {
+        font-size: .7rem;
+        margin-bottom: 20px;
+    }
+
+    .result-div p {
+        font-size: 4rem;
+        margin-top: 30px;
+    }
+
+    .result-text {
+        font-size: .7rem;
+        margin-top: 50px;
+    }
+
+}
+
+@media only screen and (max-width:360px) {
+    .table-entries {
+        font-size: .6rem;
+    }
 
 }

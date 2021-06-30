@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-8 offset-2 mt-3 mb-3">
+        <div class="col-10 offset-1 mt-3 mb-3">
             <h3 class=text-center>All Entries</h3>
             <hr class="featurette-divider">
             <!--Search form for the user to interact with-->
@@ -15,8 +15,8 @@
                 </div>
                 <br>
                 <div>
-                    <a href="{{ url_for('all_entries') }}" type="button" class="btn btn-danger btn-sm">Reset</a>
-                    <button type="submit" type="button" class="btn btn-info btn-sm">Search</button>
+                    <a href="{{ url_for('all_entries') }}" type="button" class="btn btn-danger btn-sm reset-button">Reset</a>
+                    <button type="submit" type="button" class="btn btn-info btn-sm search-button">Search</button>
                 </div>
             </form>
             <br>
@@ -33,7 +33,7 @@
                 <tbody>
                     <!--for loop to pull in all the entries in a table-->
                     {% for entry in full_entries_list %}
-                    <tr>
+                    <tr class = "table-entries">
                         <td>{{ entry.created_by }}</td>
                         <td>{{ entry.user_chosen_date }}</td>
                         <td class="score-percentage">{{ entry.score }}</td>
