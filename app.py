@@ -186,7 +186,7 @@ def password_update():
         # if password entered doesn't match
         else:
             flash("Password is incorrect, please try again")
-            return redirect(url_for("pw_change"))
+            return render_template("pw_change.html")
 
     return render_template("pw_change.html")
 
