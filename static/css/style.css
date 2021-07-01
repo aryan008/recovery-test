@@ -546,6 +546,11 @@ footer {
     .edit-button, .delete-button {
         font-size: .5rem;
     }
+
+    .user-delete-button {
+        font-size: .6rem;
+    }
+
     .result-container {
         width: 18rem;
         height: 18rem;
@@ -579,6 +584,10 @@ footer {
 
     #comment_text {
         width: 250px;
+    }
+
+    .user-delete-button {
+        font-size: .5rem;
     }
 }
 

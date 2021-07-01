@@ -16,8 +16,8 @@
                 <br>
                 <div>
                     <!--reset and search redirect/button respectively-->
-                    <a href="{{ url_for('manage_users') }}" class="btn btn-danger btn-sm">Reset</a>
-                    <button type="submit" class="btn btn-info btn-sm">Search</button>
+                    <a href="{{ url_for('manage_users') }}" class="btn btn-danger btn-sm reset-button">Reset</a>
+                    <button type="submit" class="btn btn-info btn-sm search-button">Search</button>
                 </div>
             </form>
             <br>
@@ -29,7 +29,7 @@
             <!--username deletion button with message confirmation-->
             Username: {{ user.username }} <a href="{{ url_for('delete_user', username=user.username) }}"
                 onclick="return confirm('Are you sure you want to delete this profile?');"
-                class="btn btn-danger btn-sm">Delete</a>
+                class="btn btn-danger btn-sm user-delete-button">Delete</a>
             <br>
             <hr class="featurette-divider">
             {% endfor %}
