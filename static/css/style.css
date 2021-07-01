@@ -449,6 +449,10 @@ footer {
 }
 
 @media only screen and (max-width:762px) {
+    .right-div {
+        margin-left: -15px;
+    }
+
     .featurette-image {
         display: none;
     }
@@ -478,6 +482,10 @@ footer {
 }
 
 @media only screen and (max-width:606px) {
+    .right-div {
+        margin-left: -25px;
+    }
+
     .result-container {
         width: 30rem;
         height: 30rem;
@@ -503,6 +511,10 @@ footer {
 }
 
 @media only screen and (max-width:576px) {
+    .right-div {
+        margin-left: -35px;
+    }
+
     .account-button {
         font-size: 1rem;
     }
@@ -541,6 +553,14 @@ footer {
 }
 
 @media only screen and (max-width:533px) {
+    #home-page-circle h4 {
+        font-size: .7rem;
+        padding: 20px 0;
+        height: 75px;
+        width: 75px;
+        margin-left: 10px;
+    }
+
     .edit-button, .delete-button {
         font-size: .5rem;
     }
@@ -570,12 +590,35 @@ footer {
 }
 
 @media only screen and (max-width:475px) {
+    .left-div li, .right-div li {
+        height: 60px;
+        width: 60px;
+        padding: 15px 5px;
+        font-size: .6rem;
+    }
+
+    #home-page-circle {
+        margin: 10px auto;
+    }
+
     .entry-option-headings {
         font-size: 1.5rem;
     }
 }
 
 @media only screen and (max-width:450px) {
+    .left-div li, .right-div li {
+        height: 50px;
+        width: 50px;
+        padding: 10px 2px;
+        font-size: .55rem;
+    }
+
+    #home-page-circle {
+        margin: -15px 0;
+        right: 10px;
+    }
+
     .edit-button, .delete-button {
         font-size: .5rem;
     }
@@ -611,6 +654,14 @@ footer {
 }
 
 @media only screen and (max-width:400px) {
+    #home-page-circle h4 {
+        font-size: .7rem;
+        padding: 15px 0;
+        height: 70px;
+        width: 70px;
+        margin-left: 10px;
+    }
+
     .entry-option-headings {
         font-size: 1.2rem;
     }
@@ -625,6 +676,14 @@ footer {
 }
 
 @media only screen and (max-width:360px) {
+    #home-page-circle h4 {
+        font-size: .7rem;
+        padding: 10px 0;
+        height: 60px;
+        width: 60px;
+        margin-left: 5px;
+    }
+
     .table-entries {
         font-size: .6rem;
     }
