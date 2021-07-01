@@ -7,17 +7,17 @@
         <hr class="featurette-divider">
         <!--If statement to see if a user is/is not in session-->
         {% if user_check != "Yes" %}
-        <h4 class="text-center mt-4">Create an account to get Started!
+        <h4 class="text-center mt-4 home-page-check-text">Create an account to get Started!
             <span>
                 <!--account creation button since not in session-->
-                <a href="{{ url_for('create_account') }}" type="button" class="btn btn-danger">Create Account</a>
+                <a href="{{ url_for('create_account') }}" type="button" class="mt-1 btn btn-danger home-page-create-account">Create Account</a>
             </span>
         </h4>
         <br>
-        <h4 class="text-center">Already have an account? Login!
+        <h4 class="text-center home-page-check-text">Already have an account? Login!
             <span>
                 <!--login button since not in session-->
-                <a href="{{ url_for('login') }}" type="button" class="btn btn-success">Log in</a>
+                <a href="{{ url_for('login') }}" type="button" class="mt-1 btn btn-success home-page-login">Log in</a>
             </span>
         </h4>
         <br>
@@ -29,9 +29,9 @@
             <!--narrative about site-->
             <h4>How do we calculate Recovery?</h4>
             <p>Here at Recovery Pod we aim to assess your recovery and readiness to train!</p>
-            <p>By filling out your recovery form on a daily basis, we assess the below attributes from your personal
+            <p class = "home-page-check-text">By filling out your recovery form on a daily basis, we assess the below attributes from your personal
                 responses to give you a score out of 100.</p>
-            <p><i>See our <a href="{{ url_for('about') }}">about page</a> for more details on the attributes tested!</i>
+            <p class = "home-page-check-text"><i>See our <a href="{{ url_for('about') }}">about page</a> for more details on the attributes tested!</i>
             </p>
         </div>
         <div class="row">
@@ -67,7 +67,7 @@
         <br>
         <hr class="featurette-divider">
         <div class="row">
-            <div class="information-div col-6 offset-3 home-block mb-3">
+            <div class="information-div col-md-6 offset-md-3 home-block mb-3">
                 <h4 class="text-uppercase text-center mt-3"><u>Recovery Pod Membership</u></h4>
                 <div class="text-center home-block">
                     <h5>Personal Insights</h5>
